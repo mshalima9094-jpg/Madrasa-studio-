@@ -1,13 +1,12 @@
-// ===== মাদ্রাসা স্টুডিও কনফিগ — শুধু এই ফাইল GitHub-এ এডিট করলেই হবে =====
-// ১) Firebase Console > Project settings > Your apps (Web) থেকে firebaseConfig-এর মানগুলো নিচে বসান।
-// ২) adminId = আপনার (অ্যাডমিনের) আইডি নাম্বার। এই নাম্বারে অ্যাপে রেজিস্ট্রেশন করলেই আপনি অ্যাডমিন হবেন।
-// apiKey ফাঁকা বা "YOUR..." থাকলে লগইন/অ্যাডমিন সিস্টেম বন্ধ থাকবে (অ্যাপ সবার জন্য খোলা)।
-window.MS_CONFIG={
-  adminId:"01XXXXXXXXX",
-  firebase:{
-    apiKey:"YOUR_API_KEY",
-    authDomain:"YOUR_PROJECT.firebaseapp.com",
-    projectId:"YOUR_PROJECT_ID",
-    appId:"YOUR_APP_ID"
-  }
+// Firebase কনফিগ
+const firebaseConfig = {
+  apiKey: "AIzaSyDtFC2426tWbcr-H8GNgGNIURSP_kkSnbE",
+  authDomain: "rahnuma-editor.firebaseapp.com",
+  projectId: "rahnuma-editor",
+  storageBucket: "rahnuma-editor.firebasestorage.app",
+  messagingSenderId: "557027182533",
+  appId: "1:557027182533:web:f1af1a71d0d51164406dac"
 };
+
+// অ্যাডমিন নম্বর
+const ADMIN_NUMBER = "01989923281";
