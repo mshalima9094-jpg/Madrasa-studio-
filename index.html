@@ -2,6 +2,7 @@
 <html lang="bn"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>মাদ্রাসা স্টুডিও – ফটো ও ভিডিও এডিটর</title>
+<link rel="manifest" href="manifest.json"><meta name="theme-color" content="#0b8f7d"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="মাদ্রাসা স্টুডিও"><link rel="apple-touch-icon" href="icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#eef6f5;--card:#fff;--tx:#0f2b29;--mu:#5d7c79;--ac:#0b8f7d;--ac2:#d4a94a;--bd:#d3e5e2;--fld:#f4faf9;--sh:0 6px 22px rgba(10,60,55,.10);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -43,7 +44,7 @@ small{color:var(--mu)}
 #ms{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:#111d;color:#fff;padding:9px 16px;border-radius:20px;z-index:20;display:none;font-size:.9rem;text-align:center;max-width:90%}
 #out video,#out img{width:100%;border-radius:12px;margin-top:8px}
 </style></head><body>
-<div class="hd"><div class="lg">🕌</div><div><b>মাদ্রাসা স্টুডিও</b><small>ফটো ও ভিডিও এডিটর</small></div><button class="ic" id="fb" style="font-size:.85rem" aria-label="সুলাইমান লিপি ফন্ট">অ</button><input type="file" id="ff" accept=".ttf,.otf,.woff,.woff2" hidden><button class="ic" id="th" style="margin-left:0" aria-label="থিম">🌓</button></div>
+<div class="hd"><div class="lg">🕌</div><div><b>মাদ্রাসা স্টুডিও</b><small>ফটো ও ভিডিও এডিটর</small></div><button class="ic" id="fb" style="font-size:.85rem" aria-label="সুলাইমান লিপি ফন্ট">অ</button><input type="file" id="ff" accept=".ttf,.otf,.woff,.woff2" hidden><button class="ic" id="ib" hidden style="margin-left:0" aria-label="install">📲</button><button class="ic" id="th" style="margin-left:0" aria-label="থিম">🌓</button></div>
 <div class="stage"><div class="cv"><canvas id="c" width="960" height="540"></canvas><div id="emp"><button class="b" id="first" style="font-size:1rem;padding:14px 20px">＋ ছবি / ভিডিও যোগ করুন</button></div></div>
 <div class="tp"><button id="pl">▶</button><input type="range" id="sc" min="0" max="1" step="0.01" value="0"><span id="tt">0:00 / 0:00</span></div></div>
 <input type="file" id="fm" accept="image/*,video/*" multiple hidden><input type="file" id="fi" accept="image/*" hidden><input type="file" id="fk" accept="image/*" hidden>
@@ -248,5 +249,8 @@ async function useFont(buf){const f=new FontFace('SolaimanLipi',buf);await f.loa
 (async()=>{try{const db=await FDB(),g=db.transaction('f').objectStore('f').get('sl');g.onsuccess=()=>{if(g.result)useFont(g.result).catch(()=>{})}}catch(e){}})();
 $('fb').onclick=()=>$('ff').click();
 $('ff').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const buf=await f.arrayBuffer();await useFont(buf);msg('সুলাইমান লিপি ফন্ট চালু হয়েছে');try{const db=await FDB();db.transaction('f','readwrite').objectStore('f').put(buf,'sl')}catch(e2){}}catch(er){msg('ফন্ট ফাইলটি পড়া যায়নি')}e.target.value=''};
+let dp=null;addEventListener('beforeinstallprompt',e=>{e.preventDefault();dp=e;$('ib').hidden=false});
+$('ib').onclick=async()=>{if(dp){dp.prompt();await dp.userChoice;dp=null;$('ib').hidden=true}};addEventListener('appinstalled',()=>{$('ib').hidden=true});
+if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 ui();requestAnimationFrame(loop);
 </script></body></html>

@@ -1,0 +1,1 @@
+GitHub-এ index.html, manifest.json, sw.js, icon-192.png, icon-512.png এবং SolaimanLipi.ttf একই ফোল্ডারে আপলোড করুন, তারপর GitHub Pages চালু করুন।
