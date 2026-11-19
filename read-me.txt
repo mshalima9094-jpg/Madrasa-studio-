@@ -1,1 +1,2 @@
-GitHub-এ index.html, manifest.json, sw.js, icon-192.png, icon-512.png এবং SolaimanLipi.ttf একই ফোল্ডারে আপলোড করুন, তারপর GitHub Pages চালু করুন।
+GitHub-এ এই সব ফাইল একই ফোল্ডারে আপলোড করুন: index.html, config.js, manifest.json, sw.js, icon-192.png, icon-512.png, SolaimanLipi.ttf (এবং firestore.rules রেখে দিতে পারেন)। তারপর GitHub Pages চালু করুন।
+অ্যাডমিন/লগইন সেটআপ: setup-guide.txt দেখুন।
