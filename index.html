@@ -114,6 +114,20 @@ h2,h3{line-height:1.4}a{color:var(--lk);text-decoration:none}
 .abox h2{font-weight:700}
 .seg button.on{background:var(--pr)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+/* ===== InShot-স্টাইল টুলবার ===== */
+#tools{position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:min(720px,100%);display:flex;gap:2px;overflow-x:auto;background:var(--card);border-top:1px solid var(--bd);box-shadow:0 -8px 24px rgba(7,94,84,.10);padding:8px 8px calc(8px + env(safe-area-inset-bottom,0px));z-index:15;border-radius:22px 22px 0 0;scrollbar-width:none}
+#tools::-webkit-scrollbar{display:none}
+#tools button{flex:1 0 auto;min-width:70px;min-height:62px;border:0;background:transparent;color:var(--mu);font:inherit;font-size:.74rem;font-weight:600;padding:2px 4px;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;line-height:1.35;white-space:nowrap}
+#tools button .ni{width:52px;height:30px;border-radius:15px;display:grid;place-items:center;transition:background .18s ease}
+#tools button .ni .i{width:22px;height:22px}
+#tools button.on{color:var(--lk);font-weight:700}#tools button.on .ni{background:var(--pr);color:#fff}
+#fxb,#tabs{display:none!important}
+.stage{padding-bottom:4px}.stage .tl{margin-top:6px;padding:6px}
+canvas{max-height:31vh}
+#opt{padding-top:4px}
+#opt .pn{padding:12px 14px}
+.lb{font-size:.86rem;font-weight:700;margin:14px 0 6px}.lb:first-of-type{margin-top:4px}
+textarea,select{width:100%;border:1px solid var(--bd);border-radius:12px;padding:10px 12px;background:var(--fld);color:var(--tx);font:inherit;line-height:1.5}textarea{resize:vertical}textarea:focus,select:focus,input[type=text]:focus,input[type=password]:focus{outline:2px solid var(--ac);outline-offset:1px}input[type=text],input[type=password]{border:1px solid var(--bd);border-radius:12px;padding:10px 12px;background:var(--fld);color:var(--tx);font:inherit;min-height:44px}
 </style></head><body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
 <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h4.5v-5.5h4v5.5h4.5V10"/></symbol>
@@ -127,16 +141,24 @@ h2,h3{line-height:1.4}a{color:var(--lk);text-decoration:none}
 <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></symbol>
 <symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
 <symbol id="i-mosque" viewBox="0 0 24 24"><path d="M12 2.4c1.5 1.3 2.1 2.4 2.1 3.6 0 .6-.2 1.1-.5 1.6 2.4.7 4.1 2.6 4.1 5V12H6.3v-.4c0-2.4 1.7-4.3 4.1-5-.3-.5-.5-1-.5-1.6 0-1.2.6-2.3 2.1-3.6z"/><path d="M7 13.4h10V21H7zM3.4 10.5h2.2V21H3.4zM18.4 10.5h2.2V21h-2.2z"/><path d="M4.5 5.2c.7.8 1.1 1.5 1.1 2.4S5.200 9 4.500 9.800C3.800 9 3.400 8.500 3.400 7.600S3.800 6 4.500 5.200zM19.500 5.200c.7.800 1.100 1.500 1.100 2.400S20.200 9 19.500 9.800c-.7-.8-1.100-1.300-1.100-2.200s.4-1.600 1.100-2.400z"/></symbol>
-</defs></svg>
+<symbol id="i-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6.5" r="2.6"/><circle cx="6" cy="17.5" r="2.6"/><path d="M8 8l12 9.5M8 16l12-9.5"/></symbol>
+<symbol id="i-clip" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="14" rx="3"/><path d="M3.5 9.5h17M3.5 14.5h17M9 5v14M15 5v14"/></symbol>
+<symbol id="i-card" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3.5"/><path d="M8 10h8M8 14h5"/></symbol>
+<symbol id="i-filter" viewBox="0 0 24 24"><circle cx="9" cy="9.5" r="5"/><circle cx="15" cy="9.5" r="5"/><circle cx="12" cy="15" r="5"/></symbol>
+<symbol id="i-adjust" viewBox="0 0 24 24"><path d="M4 7h9M19 7h1M4 17h1M11 17h9"/><circle cx="16" cy="7" r="2.6"/><circle cx="8" cy="17" r="2.6"/></symbol>
+<symbol id="i-text" viewBox="0 0 24 24"><path d="M5 7V4.5h14V7M12 4.5v15M9 19.5h6"/></symbol>
+<symbol id="i-sticker" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8.3 14c1 1.7 2.2 2.5 3.7 2.5s2.7-.8 3.7-2.5M9 9.6h.01M15 9.6h.01"/></symbol>
+<symbol id="i-save" viewBox="0 0 24 24"><path d="M12 4v10m0 0-4-4m4 4 4-4M5 19.5h14"/></symbol>
+<symbol id="i-noise" viewBox="0 0 24 24"><path d="M3 12h2M7 8v8M11 4.5v15M15 8.5v7M19 11v2"/></symbol>
+<symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M11 3.5l1.9 5.3L18 10.5l-5.1 1.7L11 17.5l-1.9-5.3L4 10.5l5.1-1.7z"/><path d="M18.5 15.5l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z"/></symbol>
+<symbol id="i-eq" viewBox="0 0 24 24"><path d="M6 4v16M12 4v16M18 4v16"/><circle cx="6" cy="14" r="2.2" fill="var(--card)"/><circle cx="12" cy="8" r="2.2" fill="var(--card)"/><circle cx="18" cy="15" r="2.2" fill="var(--card)"/></symbol>
+<symbol id="i-volume" viewBox="0 0 24 24"><path d="M4 10v4h4l5 4V6L8 10z"/><path d="M16.5 9a4 4 0 0 1 0 6M19 6.5a8 8 0 0 1 0 11"/></symbol>
+<symbol id="i-music" viewBox="0 0 24 24"><path d="M9 17.5V6l10-2v11.5"/><circle cx="6.5" cy="17.5" r="2.5"/><circle cx="16.5" cy="15.5" r="2.5"/></symbol><symbol id="i-tts" viewBox="0 0 24 24"><path d="M4 5h16v10H9.5L5 19v-4H4z"/><path d="M8 8.5h8M8 11.5h5"/></symbol><symbol id="i-clone" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c0-3.2 2.5-5.5 5.5-5.5s5.5 2.3 5.5 5.5"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 14c3 .1 5 1.8 5 4.5"/></symbol><symbol id="i-aivid" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9.5v5l4.5-2.5z"/><path d="M19.5 2.5l.6 1.6 1.6.6-1.6.6-.6 1.6-.6-1.6-1.6-.6 1.6-.6z"/></symbol><symbol id="i-vgen" viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="M10 9.5v5l4.5-2.5z"/></symbol><symbol id="i-hist" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol></defs></svg>
 
 <div class="hd"><div class="lg"><svg class="i f" aria-hidden="true"><use href="#i-mosque"/></svg></div><div class="tt"><b>মাদ্রাসা স্টুডিও</b><small>ফটো ও ভিডিও এডিটর</small></div><button class="ic" id="hb" aria-label="হোম"><svg class="i" aria-hidden="true"><use href="#i-home"/></svg></button><button class="ic" id="ab" hidden aria-label="অ্যাডমিন"><svg class="i" aria-hidden="true"><use href="#i-shield"/></svg><em id="abn" hidden>0</em></button><button class="ic" id="sb" aria-label="সেটিংস"><svg class="i" aria-hidden="true"><use href="#i-gear"/></svg></button></div>
 <main id="v_home" class="view"><div class="himg" id="hp_img"><span><svg class="i f" aria-hidden="true"><use href="#i-mosque"/></svg></span></div>
-<div class="card info"><div class="ir"><i><svg class="i f" aria-hidden="true"><use href="#i-mosque"/></svg></i><div><small>মাদ্রাসার নাম</small><b id="hp_name"></b></div></div>
-<div class="ir"><i><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg></i><div><small>মাদ্রাসার ঠিকানা</small><b id="hp_addr"></b></div></div>
-<div class="ir"><i><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg></i><div><small>মোবাইল নাম্বার</small><b id="hp_ph"></b></div></div>
-<button class="g wide" id="hp_edit"><svg class="i" aria-hidden="true"><use href="#i-pen"/></svg> ছবি ও তথ্য সেটিংসে দিন</button></div>
 <h3 class="sec">এডিটিং টুলস</h3>
-<div class="tiles"><button class="tile" data-m="video"><span class="ti"><svg class="i" aria-hidden="true"><use href="#i-video"/></svg></span><span class="tx2"><strong>ভিডিও এডিটিং</strong><small>কাট, ইফেক্ট, ট্রানজিশন</small></span><svg class="i ch" aria-hidden="true"><use href="#i-chev"/></svg></button><button class="tile" data-m="photo"><span class="ti"><svg class="i" aria-hidden="true"><use href="#i-photo"/></svg></span><span class="tx2"><strong>ফটো এডিটিং</strong><small>ফিল্টার, লেখা, লোগো</small></span><svg class="i ch" aria-hidden="true"><use href="#i-chev"/></svg></button><button class="tile" data-m="voice"><span class="ti"><svg class="i" aria-hidden="true"><use href="#i-mic"/></svg></span><span class="tx2"><strong>ভয়েস এডিটিং</strong><small>নয়েজ রিমুভ, ইকো, বেস</small></span><svg class="i ch" aria-hidden="true"><use href="#i-chev"/></svg></button></div></main>
+<div class="tiles"><button class="tile" data-m="video"><span class="ti"><svg class="i" aria-hidden="true"><use href="#i-video"/></svg></span><span class="tx2"><strong>ভিডিও এডিটিং</strong><small>কাট, ইফেক্ট, ট্রানজিশন</small></span><svg class="i ch" aria-hidden="true"><use href="#i-chev"/></svg></button><button class="tile" data-m="photo"><span class="ti"><svg class="i" aria-hidden="true"><use href="#i-photo"/></svg></span><span class="tx2"><strong>ফটো এডিটিং</strong><small>ফিল্টার, লেখা, লোগো</small></span><svg class="i ch" aria-hidden="true"><use href="#i-chev"/></svg></button><button class="tile" data-m="voice"><span class="ti"><svg class="i" aria-hidden="true"><use href="#i-mic"/></svg></span><span class="tx2"><strong>ভয়েস এডিটিং</strong><small>নয়েজ রিমুভ, ইকো, বেস</small></span><svg class="i ch" aria-hidden="true"><use href="#i-chev"/></svg></button><button class="tile" data-m="ai"><span class="ti"><svg class="i" aria-hidden="true"><use href="#i-sparkle"/></svg></span><span class="tx2"><strong>এআই ভয়েস</strong><small>টেক্সট টু স্পিচ, ভয়েস ক্লোন</small></span><svg class="i ch" aria-hidden="true"><use href="#i-chev"/></svg></button><button class="tile" data-m="vid"><span class="ti"><svg class="i" aria-hidden="true"><use href="#i-aivid"/></svg></span><span class="tx2"><strong>এআই ভিডিও</strong><small>টেক্সট/ছবি থেকে Kling ভিডিও</small></span><svg class="i ch" aria-hidden="true"><use href="#i-chev"/></svg></button></div></main>
 <main id="v_set" class="view" hidden><section class="pn"><h3>🕌 মাদ্রাসার ছবি ও তথ্য</h3><div class="himg sm" id="s_pv"><span><svg class="i f" aria-hidden="true"><use href="#i-mosque"/></svg></span></div>
 <div class="row"><button class="g" id="s_cam">📷 ক্যামেরা</button><button class="g" id="s_gal">🖼️ গ্যালারি</button><button class="g" id="s_rm">🗑️ ছবি সরান</button></div>
 <input type="file" id="p_cam" accept="image/*" capture="environment" hidden><input type="file" id="p_gal" accept="image/*" hidden>
@@ -145,28 +167,28 @@ h2,h3{line-height:1.4}a{color:var(--lk);text-decoration:none}
 <section class="pn" style="margin-top:12px"><h3>⚙️ অ্যাপ সেটিংস</h3><div class="row"><button class="g" id="th">🌓 থিম বদলান</button><button class="g" id="fb">অ সুলাইমান লিপি ফন্ট</button><input type="file" id="ff" accept=".ttf,.otf,.woff,.woff2" hidden><button class="g" id="ib" hidden>📲 অ্যাপ ইনস্টল</button><button class="g" id="lo2" hidden>🚪 লগআউট</button></div></section></main>
 <div id="v_ed" hidden>
 <div class="stage"><div class="cv"><canvas id="c" width="960" height="540"></canvas><div id="emp"><button class="b" id="first" style="font-size:1rem;padding:14px 20px">＋ ছবি / ভিডিও যোগ করুন</button></div><div id="fxn"></div></div>
-<div class="tp" id="tpb"><button id="pl">▶</button><input type="range" id="sc" min="0" max="1" step="0.01" value="0"><span id="tt">0:00 / 0:00</span></div><div class="fxb" id="fxb"><button class="fxc ai on" id="aib">🤖 AI</button></div></div>
-<input type="file" id="fm" accept="image/*,video/*" multiple hidden><input type="file" id="fi" accept="image/*" hidden><input type="file" id="fk" accept="image/*" hidden>
-<nav class="tabs" id="tabs"><button data-t="clip" class="on">✂️ টাইমলাইন</button><button data-t="fx">🎨 ফিল্টার</button><button data-t="txt">🔤 লেখা/লোগো</button><button data-t="vo">🎙️ ভয়েস</button><button data-t="out">💾 সেভ</button></nav>
-
-<section class="pn" id="p_clip"><h3>ক্লিপ টাইমলাইন</h3>
+<div class="tp" id="tpb"><button id="pl">▶</button><input type="range" id="sc" min="0" max="1" step="0.01" value="0"><span id="tt">0:00 / 0:00</span></div>
 <div class="tl" id="tl"><div id="tlw"></div></div>
-<div class="row"><button class="g" id="sp">✂️ স্প্লিট</button><button class="g" id="dc">🗑️ বাদ দিন</button><button class="g" id="ml">◀ আগে</button><button class="g" id="mr">পরে ▶</button><button class="b" id="ad">＋ ভিডিও/ছবি</button></div>
-<small>স্লাইডার টেনে যেখানে কাটতে চান সেখানে যান → স্প্লিট চাপুন। অবাঞ্ছিত অংশ বেছে "বাদ দিন"। নতুন ভিডিও নির্বাচিত ক্লিপের পরে বসবে।</small>
-<h3 style="margin-top:14px">🎬 অ্যানিমেটেড কার্ড (ইন্ট্রো / আউট্রো)</h3>
-<div class="row"><select id="cp" style="flex:1"><option value="0">শুরুতে (ইন্ট্রো)</option><option value="1">নির্বাচিত ক্লিপের পরে (মাঝে)</option><option value="2">শেষে (আউট্রো)</option></select><button class="b" id="ac">কার্ড যোগ</button></div>
-<h3 style="margin-top:14px">নির্বাচিত ক্লিপের সেটিং</h3><div id="kp"></div></section>
+<div class="fxb" id="fxb"><button class="fxc ai on" id="aib">🤖 AI</button></div></div>
+<input type="file" id="fm" accept="image/*,video/*" multiple hidden><input type="file" id="fi" accept="image/*" hidden><input type="file" id="fk" accept="image/*" hidden>
 
+<div id="opt">
+<section class="pn" id="p_clip"><h3>✂️ কাট ও ক্লিপ</h3>
+<div class="row"><button class="g" id="sp">✂️ স্প্লিট</button><button class="g" id="dc">🗑️ বাদ দিন</button><button class="g" id="ml">◀ আগে</button><button class="g" id="mr">পরে ▶</button><button class="b" id="ad">＋ ভিডিও/ছবি</button></div>
+<small>স্লাইডার টেনে যেখানে কাটতে চান সেখানে যান → স্প্লিট চাপুন। অবাঞ্ছিত অংশ বেছে "বাদ দিন"। নতুন ভিডিও নির্বাচিত ক্লিপের পরে বসবে।</small></section>
+<section class="pn" id="p_set" hidden><h3>🎞️ নির্বাচিত ক্লিপের সেটিং</h3><div id="kp"></div></section>
+<section class="pn" id="p_card" hidden><h3>🎬 অ্যানিমেটেড কার্ড (ইন্ট্রো / আউট্রো)</h3>
+<div class="row"><select id="cp" style="flex:1"><option value="0">শুরুতে (ইন্ট্রো)</option><option value="1">নির্বাচিত ক্লিপের পরে (মাঝে)</option><option value="2">শেষে (আউট্রো)</option></select><button class="b" id="ac">কার্ড যোগ</button></div></section>
 <section class="pn" id="p_fx" hidden><h3>🎬 সিনেমাটিক ইফেক্ট (প্রফেশনাল)</h3><div class="chp" id="fxl"></div>
 <div class="row"><label class="aiw"><input type="checkbox" id="ai" checked> 🤖 AI Adaptive Adjustment</label></div><small id="aiv"></small>
-<h3 style="margin-top:12px">⚡ ক্লাসিক ফিল্টার</h3><div class="pre" id="pre"></div>
+<div class="row"><label class="aiw"><input type="checkbox" id="ai" checked> 🤖 AI Adaptive Adjustment</label></div><small id="aiv"></small>
+<h3 style="margin-top:12px">⚡ ক্লাসিক ফিল্টার</h3><div class="pre" id="pre"></div></section>
+<section class="pn" id="p_adj" hidden><h3>🎚️ ম্যানুয়াল কন্ট্রোল</h3>
 <div class="row"><button class="b" id="auto">✨ স্মার্ট অটো-ফিক্স</button><button class="g" id="rs">রিসেট</button></div>
-<h3 style="margin-top:12px">🎚️ ম্যানুয়াল কন্ট্রোল</h3><div id="sl"></div><small>ফিল্টার সব ভিডিও/ছবির ক্লিপে প্রযোজ্য, কার্ডে নয়।</small></section>
-
-<section class="pn" id="p_txt" hidden><h3>🔤 লেখা, লোগো ও ইমোজি</h3>
+<div id="sl"></div><small>ফিল্টার সব ভিডিও/ছবির ক্লিপে প্রযোজ্য, কার্ডে নয়।</small></section>
+<section class="pn" id="p_txt" hidden><h3>🔤 লেখা ও নাম-ফলক</h3>
 <small>ফাঁকা জায়গায় ট্যাপ করলে নতুন লেখা বসবে। টেনে সরান, ট্যাপ করে এডিট করুন।</small>
-<div class="row"><button class="g" id="aT">🔤 লেখা</button><button class="g" id="aTop">⬆️ উপরের বার</button><button class="g" id="aBot">⬇️ নিচের বার</button><button class="g" id="aL">🏷️ নাম-ফলক</button><button class="g" id="aI">🖼️ লোগো/ছবি</button></div>
-<div class="row" id="ems"></div>
+<div class="row"><button class="g" id="aT">🔤 লেখা</button><button class="g" id="aTop">⬆️ উপরের বার</button><button class="g" id="aBot">⬇️ নিচের বার</button><button class="g" id="aL">🏷️ নাম-ফলক</button></div>
 <div id="ep" hidden><div id="tp"><input id="tx" placeholder="এখানে লিখুন">
 <div class="row"><label>লেখার রং <input type="color" id="cl" value="#ffffff"></label><label>ব্যাকগ্রাউন্ড <input type="color" id="bc" value="#4a2a22"></label><select id="bm" style="flex:1"><option value="none">ব্যাকগ্রাউন্ড নেই</option><option value="box">বক্স</option><option value="bar">পূর্ণ-প্রস্থ বার</option></select></div></div>
 <div class="s"><span>সাইজ</span><input type="range" id="sz" min="2" max="60"><span id="szv"></span></div>
@@ -174,15 +196,63 @@ h2,h3{line-height:1.4}a{color:var(--lk);text-decoration:none}
 <small>সময়কাল ০ মানে ভিডিওর শেষ পর্যন্ত। সময় পুরো টাইমলাইন ধরে গোনা হয়।</small>
 <div class="row"><button class="g" id="tf">পুরো ভিডিও</button><button class="g" id="t5">৫ সে</button><button class="g" id="t10">১০ সে</button><button class="g" id="tn">এখন থেকে শুরু</button></div>
 <div class="row"><button class="g" id="del">🗑️ মুছুন</button><button class="b" id="dn">✔ শেষ</button></div></div></section>
-
-<section class="pn" id="p_vo" hidden><h3>🎙️ ভয়েস ইফেক্ট</h3><div class="pre" id="vpre"></div><div id="vs"></div><div class="row"><button class="g" id="nl">🎯 নয়েজ প্রোফাইল শেখান</button><button class="g" id="na">♻️ অটো নয়েজ</button></div>
+<section class="pn" id="p_stk" hidden><h3>😊 স্টিকার, ইমোজি ও লোগো</h3><div class="row"><button class="g" id="aI">🖼️ লোগো/ছবি</button></div><div class="row" id="ems"></div></section>
+<section class="pn" id="p_vi" hidden><h3>🎧 আলাদা ভয়েস / অডিও</h3><div class="row"><button class="b" id="ad2">＋ অডিও / ভিডিও যোগ</button><button class="g" id="rec">🎤 রেকর্ড শুরু</button><button class="g" id="dc2">🗑️ বাদ দিন</button></div><small>MP3, M4A, WAV, OGG ইত্যাদি আলাদা ভয়েস ফাইল যোগ করতে পারবেন, অথবা মাইকে সরাসরি রেকর্ড করুন। তারপর নিচের নয়েজ, ইফেক্ট, ইকিউ ও ভলিউম টুল দিয়ে এডিট করে "সেভ" থেকে শুধু অডিও (WAV) বা ভিডিও হিসেবে নামান।</small></section>
+<section class="pn" id="p_tts" hidden><h3>🗣️ টেক্সট টু স্পিচ (ElevenLabs AI)</h3>
+<div class="row"><input type="password" id="elk" placeholder="ElevenLabs API কী" autocomplete="off" style="flex:1;min-width:0"><button class="g" id="elks">🔑 সেভ ও ভয়েস লোড</button></div>
+<small>কী শুধু এই ফোনের ব্রাউজারে থাকে। elevenlabs.io → Developers → API Keys থেকে কী বানান। এই ফিচারে ইন্টারনেট ও ElevenLabs অ্যাকাউন্টের ক্রেডিট লাগে।</small>
+<div class="lb">ভয়েস</div><div class="row"><select id="elv" style="flex:1;min-width:0"><option value="">আগে API কী দিন</option></select><button class="g" id="elp">▶ নমুনা</button></div>
+<div class="lb">মডেল</div><select id="elm"></select>
+<div class="lb">লেখা <span id="elc" style="font-weight:400;color:var(--mu)"></span></div><textarea id="elt" rows="5" placeholder="এখানে বাংলা বা যেকোনো ভাষার লেখা লিখুন…"></textarea>
+<div class="chp" id="elg"></div><small>v3/v4 মডেলে [whispers], [excited] ইত্যাদি ট্যাগ দিয়ে ভাব যোগ করা যায়।</small>
+<label class="aiw"><input type="checkbox" id="eln" checked> 🔢 সংখ্যা কথায় পড়ুন (১২৫ → এক শো পঁচিশ; ফোন নম্বর অঙ্ক ধরে)</label>
+<div class="lb">আউটপুট মান</div><select id="elf"><option value="mp3_44100_128">MP3 128k (সব প্ল্যান)</option><option value="mp3_44100_192">MP3 192k (Creator+)</option><option value="pcm_44100">WAV লসলেস 44.1kHz (Pro+)</option></select><small>প্ল্যানে না থাকলে নিজে MP3 128k-এ নেমে যাবে। বড় লেখা ভাগ হলেও আগের-পরের লাইন দেখে সুর মিলিয়ে নেয়।</small>
+<div id="elsl"></div>
+<label class="aiw" id="elsbw"><input type="checkbox" id="elsb" checked> স্পিকার বুস্ট (শুধু v2/Flash)</label>
+<div class="row"><button class="b" id="elgo" style="width:100%;font-size:1rem;padding:13px">🔊 ভয়েস তৈরি করুন</button></div><div id="elo"></div></section>
+<section class="pn" id="p_cl" hidden><h3>🧬 ভয়েস ক্লোন (Instant Voice Clone)</h3>
+<small>নিজের পরিষ্কার ভয়েসের ১–৩ মিনিটের নমুনা দিন (একজনের কথা, ব্যাকগ্রাউন্ড নয়েজ ছাড়া)। ElevenLabs-এর Starter বা তার উপরের প্ল্যান লাগে। ক্লোন হলে ভয়েসটি "টেক্সট টু স্পিচ"-এর তালিকায় যোগ হবে। API কী আগে "টেক্সট টু স্পিচ" ট্যাবে দিন।</small>
+<details><summary>📜 রেকর্ডের জন্য পড়ার লেখা (সব ধ্বনি ধরার জন্য)</summary><small>মাইক ১৫–২০ সেমি দূরে রেখে, শান্ত ঘরে, স্বাভাবিক গলায় পড়ুন: “আসসালামু আলাইকুম। আজ সকালে আকাশ বেশ পরিষ্কার ছিল, তাই আমরা সবাই মিলে মাদ্রাসার মাঠে গিয়েছিলাম। কত মানুষ এসেছিল জানো? প্রায় একশো পঁচিশ জন! ছোটদের হাসি, বড়দের দোয়া আর পাখির ডাকে জায়গাটা ভরে উঠেছিল। তুমি কি কখনো এমন সুন্দর সকাল দেখেছ? আমি তো বলব, এটা আল্লাহর এক অপূর্ব নিয়ামত। ধন্যবাদ, আবার দেখা হবে ইনশাআল্লাহ।” — প্রশ্ন, বিস্ময় ও স্বাভাবিক কথার ভাব মিশিয়ে ১–৩ মিনিট পড়ুন।</small></details>
+<div class="lb">ক্লোনের নাম</div><input type="text" id="cln" placeholder="যেমন: আমার ভয়েস" style="width:100%">
+<div class="lb">ভয়েস নমুনা</div><div class="row"><button class="g" id="clf">📁 ফাইল বাছুন</button><button class="g" id="clr">🎤 রেকর্ড করুন</button></div><input type="file" id="clfi" accept="audio/*,video/*" multiple hidden><div id="cll"></div><div id="clq"></div>
+<label class="aiw"><input type="checkbox" id="clp" checked> ✨ আপলোডের আগে নমুনা প্রস্তুত করুন (মনো, শুরু-শেষের নীরবতা ছাঁটা, ভলিউম সমান, লসলেস WAV)</label>
+<label class="aiw"><input type="checkbox" id="clb"> নমুনা থেকে ব্যাকগ্রাউন্ড নয়েজ সরান</label>
+<label class="aiw"><input type="checkbox" id="clc"> আমি নিশ্চিত করছি এই ভয়েস আমার নিজের বা ভয়েসের মালিকের স্পষ্ট অনুমতি আছে; কারও অনুকরণ বা প্রতারণায় ব্যবহার করব না।</label>
+<div class="row"><button class="b" id="clg" style="flex:1">🧬 ক্লোন তৈরি করুন</button><button class="g" id="cld">🗑️ নির্বাচিত ক্লোন মুছুন</button></div><div id="clo"></div></section>
+<section class="pn" id="p_vg" hidden><h3>🎬 এআই ভিডিও জেনারেটর (Kling)</h3>
+<div class="row"><input type="password" id="fk_key" placeholder="fal.ai API কী (Key ...)" autocomplete="off" style="flex:1;min-width:0"><button class="g" id="fk_sv">🔑 সেভ</button></div>
+<small>কী শুধু এই ফোনের ব্রাউজারে থাকে। fal.ai → Dashboard → API Keys থেকে কী বানান। ভিডিও তৈরির খরচ fal.ai আপনার ব্যালেন্স থেকে কাটে (প্রতি ভিডিও/সেকেন্ড হিসেবে)।</small>
+<div class="lb">ধরন</div><div class="seg" id="vg_mode"><button class="on" data-v="t2v">📝 লেখা থেকে ভিডিও</button><button data-v="i2v">🖼️ ছবি থেকে ভিডিও</button></div>
+<div class="lb">মডেল</div><select id="vg_m"></select>
+<div class="row" id="vg_cw" hidden><input type="text" id="vg_c" placeholder="মডেল পাথ, যেমন: fal-ai/kling-video/v2.5-turbo/pro" style="flex:1;min-width:0"></div>
+<small id="vg_mi"></small>
+<div id="vg_imw" hidden><div class="lb">শুরুর ছবি</div><div class="row"><button class="g" id="vg_pi">🖼️ ছবি বাছুন</button><span id="vg_pn" style="font-size:.8rem;color:var(--mu)"></span></div><img id="vg_pv" alt="" style="max-width:100%;max-height:160px;border-radius:12px;display:none"><input type="file" id="vg_fi" accept="image/*" hidden></div>
+<div class="lb">প্রম্পট (একাধিক ভিডিও বানাতে প্রতি লাইনে আলাদা প্রম্পট লিখুন)</div><textarea id="vg_p" rows="5" placeholder="যেমন: A cinematic drone shot over a green village at sunrise, soft golden light, slow forward camera motion, ultra realistic, 4K"></textarea>
+<div class="chp" id="vg_ch"></div>
+<div class="lb">যা চাই না (নেগেটিভ প্রম্পট)</div><input type="text" id="vg_n" value="blur, distort, low quality, watermark, text, extra limbs" style="width:100%">
+<div class="fr"><label>সময়কাল<select id="vg_d"><option value="5">৫ সেকেন্ড</option><option value="10">১০ সেকেন্ড</option></select></label><label id="vg_arw">ফ্রেম<select id="vg_ar"><option value="16:9">16:9 (ল্যান্ডস্কেপ)</option><option value="9:16">9:16 (রিলস/শর্টস)</option><option value="1:1">1:1 (স্কয়ার)</option></select></label><label>প্রতি প্রম্পটে ভিডিও<select id="vg_k"><option value="1">১টি</option><option value="2">২টি</option><option value="3">৩টি</option><option value="4">৪টি</option></select></label></div>
+<div class="s"><span>প্রম্পট মানা</span><input type="range" id="vg_cfg" min="0.1" max="1" step="0.05" value="0.5"><span id="vg_cfgv">0.5</span></div>
+<div class="row"><button class="b" id="vg_go" style="width:100%;font-size:1rem;padding:13px">🚀 ভিডিও তৈরি করুন</button></div>
+<div id="vg_q"></div><div id="vg_o"></div></section>
+<section class="pn" id="p_vh" hidden><h3>🕘 তৈরি করা ভিডিও</h3><small>শেষ ৪০টি সেভ থাকে। fal.ai-এর লিংক কিছুদিন পর মুছে যেতে পারে, তাই তৈরি হলেই ডাউনলোড করে রাখুন। চলমান কাজ অ্যাপ বন্ধ করলেও পরে আবার খুললে চালু হবে।</small><div id="vh_l"></div><div class="row"><button class="g" id="vh_clr">🗑️ সব তালিকা মুছুন</button></div></section>
+<section class="pn" id="p_vn" hidden><h3>🔇 নয়েজ রিমুভ</h3><div id="vs_vn"></div><div class="row"><button class="g" id="nl">🎯 নয়েজ প্রোফাইল শেখান</button><button class="g" id="na">♻️ অটো নয়েজ</button></div>
 <small>প্লে চাপলে ইফেক্টসহ শুনবেন, সেভেও যুক্ত হবে। নয়েজ রিমুভ এখন AI স্পেকট্রাল পদ্ধতিতে ফ্যান, বাতাস, হিস ও গুনগুন কমায়। সবচেয়ে ভালো ফলের জন্য ভিডিওর যে অংশে কেউ কথা বলছে না সেটা প্লে করে "নয়েজ প্রোফাইল শেখান" চাপুন। ইকো ও রিভার্ব বুঝতে ইয়ারফোন নিন।</small></section>
-
-<section class="pn" id="p_out" hidden><h3>💾 ফাইনাল ভিডিও সেভ</h3>
-<div class="fr"><label>উচ্চতা (px)<input type="number" id="eh" value="1080" min="144" max="2160"></label><label>প্রস্থ (px)<input type="number" id="ew" value="1920" min="144" max="3840"></label><button class="g" id="ra">অটো প্রস্থ</button></div>
-<small>৬০ fps, MP4 (ব্রাউজার সমর্থন না করলে WebM)। সেভ রিয়েল-টাইমে রেকর্ড হয়, তাই পুরো ভিডিওর সমান সময় লাগবে; স্ক্রিন চালু রাখুন।</small>
+<section class="pn" id="p_vf" hidden><h3>✨ ভয়েস ইফেক্ট ও প্রিসেট</h3><div class="pre" id="vpre"></div><div id="vs_vf"></div></section>
+<section class="pn" id="p_vq" hidden><h3>🎛️ ইকুয়ালাইজার</h3><div id="vs_vq"></div></section>
+<section class="pn" id="p_vm" hidden><h3>🔊 ভলিউম ও কম্প্রেশন</h3><div id="vs_vm"></div></section>
+<section class="pn" id="p_out" hidden><h3>💾 ফাইনাল সেভ</h3>
+<div class="lb">📐 রেসিও (ফ্রেমের মাপ)</div><div class="chp" id="arc"></div><div class="row" id="arx" hidden><input type="number" id="arw" min="1" max="100" value="16" style="width:84px"> <b>:</b> <input type="number" id="arh" min="1" max="100" value="9" style="width:84px"></div>
+<div class="lb">🖥️ রেজুলেশন</div><div class="chp" id="rsc"></div><div class="row" id="rsx" hidden><label>ছোট দিকের মাপ (px)<input type="number" id="rsv" min="144" max="4320" value="1080" style="width:120px"></label></div>
+<div id="fpg"><div class="lb">🎞️ FPS (ফ্রেম/সেকেন্ড)</div><div class="chp" id="fpc"></div><div class="row" id="fpx" hidden><label>FPS (১০–৬০)<input type="number" id="fpv" min="10" max="60" value="30" style="width:100px"></label></div></div>
+<div class="lb">🖼️ ফ্রেমে ক্লিপ বসানো</div><div class="chp" id="ftc"></div>
+<input type="number" id="eh" value="1080" hidden><input type="number" id="ew" value="1920" hidden>
+<small id="osum" style="display:block;margin-top:10px;font-weight:600;color:var(--lk)"></small>
+<small>MP4 (ব্রাউজার সমর্থন না করলে WebM)। সেভ রিয়েল-টাইমে রেকর্ড হয়, তাই পুরো ভিডিওর সমান সময় লাগবে; স্ক্রিন চালু রাখুন। FPS ও রেজুলেশন বেশি দিলে ফোন ধীর হতে পারে।</small>
+<div class="row" id="dlar" hidden><button class="b" id="dla" style="width:100%;font-size:1rem;padding:13px">🎧 শুধু অডিও সেভ করুন (WAV)</button></div>
 <div class="row"><button class="b" id="dl" style="width:100%;font-size:1rem;padding:13px">🚀 ফাইনাল ফাইল তৈরি করুন</button></div><div id="out"></div></section>
 </div>
+</div>
+
 <div id="auth" hidden><div class="abox"><div class="lg" style="margin:0 auto 8px"><svg class="i f" aria-hidden="true"><use href="#i-mosque"/></svg></div><h2 style="margin:0 0 12px">মাদ্রাসা স্টুডিও</h2>
 <div id="a_form"><div class="seg"><button id="a_t1" class="on">লগইন</button><button id="a_t2">রেজিস্ট্রেশন</button></div>
 <label id="a_nl" hidden>আপনার নাম<input id="a_name" autocomplete="name" placeholder="পূর্ণ নাম"></label>
@@ -193,7 +263,7 @@ h2,h3{line-height:1.4}a{color:var(--lk);text-decoration:none}
 <div id="adm" class="sheetw" hidden><div class="sheet"><h2 style="margin:0 0 8px">🛡️ অ্যাডমিন প্যানেল</h2><p style="color:var(--mu);margin:0 0 10px">নতুন রেজিস্ট্রেশন রিকোয়েস্ট এখানে আসবে। অনুমোদন দিলে তবেই ইউজার অ্যাপ চালাতে পারবে।</p>
 <div class="chp" id="ad_t"><button class="fxc on" data-s="pending"></button><button class="fxc" data-s="approved"></button><button class="fxc" data-s="blocked"></button></div><div id="ad_l"></div>
 <button class="g" id="ad_nt" style="width:100%;margin-top:10px">🔔 নোটিফিকেশন চালু করুন</button><button class="g" id="ad_cl" style="width:100%;margin-top:8px;border-color:transparent">বন্ধ করুন</button></div></div>
-<nav id="nav"><button data-m="video"><span class="ni"><svg class="i" aria-hidden="true"><use href="#i-video"/></svg></span>ভিডিও এডিটিং</button><button data-m="photo"><span class="ni"><svg class="i" aria-hidden="true"><use href="#i-photo"/></svg></span>ফটো এডিটিং</button><button data-m="voice"><span class="ni"><svg class="i" aria-hidden="true"><use href="#i-mic"/></svg></span>ভয়েস এডিটিং</button></nav>
+<nav id="tools" hidden></nav><nav id="nav"><button data-m="video"><span class="ni"><svg class="i" aria-hidden="true"><use href="#i-video"/></svg></span>ভিডিও এডিটিং</button><button data-m="photo"><span class="ni"><svg class="i" aria-hidden="true"><use href="#i-photo"/></svg></span>ফটো এডিটিং</button><button data-m="voice"><span class="ni"><svg class="i" aria-hidden="true"><use href="#i-mic"/></svg></span>ভয়েস এডিটিং</button><button data-m="ai"><span class="ni"><svg class="i" aria-hidden="true"><use href="#i-sparkle"/></svg></span>এআই ভয়েস</button><button data-m="vid"><span class="ni"><svg class="i" aria-hidden="true"><use href="#i-aivid"/></svg></span>এআই ভিডিও</button></nav>
 <div id="ms"></div>
 <script src="config.js"></script><script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script><script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script><script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 <script>
@@ -322,12 +392,114 @@ const len=k=>k.kind=='video'?k.b-k.a:k.dur;
 function layout(){starts=[];total=0;for(const k of clips){starts.push(total);total+=len(k)}}
 function at(t){if(!clips.length)return null;let i=clips.length-1;for(let j=0;j<clips.length;j++)if(t<starts[j]+len(clips[j])){i=j;break}const k=clips[i];return{i,k,lt:K(t-starts[i],0,len(k))}}
 const thumb=(s,w,h)=>{const t=document.createElement('canvas');t.width=96;t.height=Math.round(96*h/w)||54;t.getContext('2d').drawImage(s,0,0,t.width,t.height);return t.toDataURL('image/jpeg',.6)};
-const mediaFrom=f=>new Promise(res=>{const u=URL.createObjectURL(f);if(f.type.startsWith('video')){const v=document.createElement('video');v.playsInline=true;v.preload='auto';v.src=u;v.onloadedmetadata=()=>{const m={kind:'video',el:v,w:v.videoWidth,h:v.videoHeight,dur:v.duration,th:''};v.onseeked=()=>{v.onseeked=null;try{m.th=thumb(v,m.w,m.h);tlBuild()}catch(e){}};v.currentTime=Math.min(.3,v.duration/2);res(m)}}else{const i=new Image();i.onload=()=>res({kind:'image',img:i,w:i.width,h:i.height,th:thumb(i,i.width,i.height)});i.src=u}});
+const mediaFromV=f=>new Promise(res=>{const u=URL.createObjectURL(f),isV=f.type.startsWith('video')||(!f.type&&/\.(mp4|mov|webm|mkv|3gp|m4v)$/i.test(f.name));
+if(isV){const v=document.createElement('video');v.playsInline=true;v.preload='auto';v.src=u;v.onerror=()=>res(null);v.onloadedmetadata=()=>{const m={kind:'video',el:v,w:v.videoWidth,h:v.videoHeight,dur:v.duration,th:''};v.onseeked=()=>{v.onseeked=null;try{m.th=thumb(v,m.w,m.h);tlBuild()}catch(e){}};v.currentTime=Math.min(.3,v.duration/2);res(m)}}
+else{const fin=(s,w,h)=>{try{const k=Math.min(1,3000/Math.max(w,h)),c=document.createElement('canvas');c.width=Math.max(1,Math.round(w*k));c.height=Math.max(1,Math.round(h*k));c.getContext('2d').drawImage(s,0,0,c.width,c.height);res({kind:'image',img:c,w:c.width,h:c.height,th:thumb(c,c.width,c.height)})}catch(e){res(null)}},
+viaImg=()=>{const i=new Image();i.onload=()=>fin(i,i.naturalWidth||i.width,i.naturalHeight||i.height);i.onerror=()=>res(null);i.src=u};
+if(window.createImageBitmap)createImageBitmap(f).then(b=>fin(b,b.width,b.height)).catch(viaImg);else viaImg()}});
 function sizeC(){const Lg=960;if(ar>=1){c.width=Lg;c.height=Math.round(Lg/ar/2)*2}else{c.height=Lg;c.width=Math.round(Lg*ar/2)*2}fixW()}
-const fixW=()=>{$('ew').value=Math.round($('eh').value*ar/2)*2};
-async function addFiles(files){for(const f of files){const m=await mediaFrom(f);if(!clips.length){ar=m.w/m.h;sizeC()}const k=m.kind=='video'?{kind:'video',m,a:0,b:m.dur,tr:'none',td:.8}:{kind:'image',m,dur:4,tr:'none',td:.8};const p=sel>=0?sel+1:clips.length;clips.splice(p,0,k);sel=p;if(A&&m.kind=='video')wire(m);layout()}T=starts[sel]||0;ui()}
+const fixW=()=>{};
+
+function audThumb(){const c=document.createElement('canvas');c.width=96;c.height=54;const g=c.getContext('2d'),gr=g.createLinearGradient(0,0,96,54);gr.addColorStop(0,'#0F8B78');gr.addColorStop(1,'#053F38');g.fillStyle=gr;g.fillRect(0,0,96,54);g.fillStyle='#fffd';[.3,.6,.9,.5,.8,.4,.7,.35,.55].forEach((a,i)=>{const h=40*a;g.fillRect(10+i*9,27-h/2,5,h)});return c.toDataURL('image/jpeg',.7)}
+const AUDT=audThumb();
+const mediaFrom=f=>{if(!(f.type.startsWith('audio')||/\.(mp3|m4a|aac|wav|ogg|oga|opus|amr|flac|weba)$/i.test(f.name)))return mediaFromV(f);
+ return new Promise(res=>{const v=document.createElement('video');v.playsInline=true;v.preload='auto';v.src=URL.createObjectURL(f);v.onerror=()=>res(null);
+ const fin=()=>res(isFinite(v.duration)&&v.duration>0?{kind:'video',el:v,w:1280,h:720,dur:v.duration,th:AUDT,audio:1,name:f.name.replace(/\.[^.]+$/,'')}:null);
+ v.onloadedmetadata=()=>{if(!isFinite(v.duration)){v.ontimeupdate=()=>{v.ontimeupdate=null;v.currentTime=0;fin()};v.currentTime=1e7}else fin()}})};
+function audVis(g,m,w,h){const gr=g.createLinearGradient(0,0,w,h);gr.addColorStop(0,'#0F8B78');gr.addColorStop(1,'#053F38');g.fillStyle=gr;g.fillRect(0,0,w,h);const n=30,st=w*.8/n,bw=st*.62,ct=m.el.currentTime||0;g.fillStyle='rgba(255,255,255,.9)';
+ for(let i=0;i<n;i++){const a=.2+.8*Math.abs(Math.sin(i*.55+ct*5.2)*Math.cos(i*.21+ct*2.3)),bh=h*.5*a;g.fillRect(w*.1+i*st,h*.46-bh/2,bw,bh)}
+ g.fillStyle='rgba(255,255,255,.92)';g.font='600 '+Math.round(h*.065)+'px sans-serif';g.textAlign='center';g.fillText((m.name||'অডিও').slice(0,32),w/2,h*.86);g.textAlign='start'}
+// মাইক রেকর্ড
+let REC=null;
+$('rec').onclick=async()=>{if(REC){REC.mr.stop();return}
+ try{const st=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:false,noiseSuppression:false,autoGainControl:false}});
+  const mt=['audio/mp4','audio/webm;codecs=opus','audio/webm'].find(q=>MediaRecorder.isTypeSupported(q))||'',ch=[],mr=new MediaRecorder(st,mt?{mimeType:mt}:{});
+  mr.ondataavailable=e=>e.data.size&&ch.push(e.data);
+  mr.onstop=()=>{st.getTracks().forEach(q=>q.stop());clearInterval(REC.iv);REC=null;$('rec').textContent='🎤 রেকর্ড শুরু';const ty=(mr.mimeType||mt||'audio/webm').split(';')[0];addFiles([new File([new Blob(ch,{type:ty})],'রেকর্ডিং.'+(ty.includes('mp4')?'m4a':'webm'),{type:ty})])};
+  mr.start();REC={mr,t0:Date.now(),iv:setInterval(()=>{$('rec').textContent='⏹ থামান ('+Math.floor((Date.now()-REC.t0)/1000)+' সে)'},500)};$('rec').textContent='⏹ থামান (0 সে)'}
+ catch(e){msg('মাইক্রোফোনের অনুমতি দিন')}};
+$('ad2').onclick=()=>$('fm').click();$('dc2').onclick=()=>$('dc').click();
+// শুধু অডিও (WAV) সেভ
+$('dla').onclick=()=>{if(!clips.length)return msg('আগে অডিও বা ভিডিও যোগ করুন');pause();pick(null);ensureA();if(!A)return msg('এই ব্রাউজারে অডিও সমর্থিত নয়');
+ const ac=A.ac,o=$('out'),tap=ac.createScriptProcessor(4096,2,2),mu=ac.createGain(),P=[];let n=0;mu.gain.value=0;
+ tap.onaudioprocess=e=>{const b=e.inputBuffer,l=b.getChannelData(0),r=b.numberOfChannels>1?b.getChannelData(1):l,q=new Int16Array(l.length*2);for(let i=0;i<l.length;i++){q[2*i]=Math.max(-1,Math.min(1,l[i]))*32767;q[2*i+1]=Math.max(-1,Math.min(1,r[i]))*32767}P.push(q);n+=l.length};
+ A.out.connect(tap);tap.connect(mu);mu.connect(ac.destination);A.mon.gain.value=0;ac.resume();
+ const fin=()=>{try{A.out.disconnect(tap)}catch(e){}tap.onaudioprocess=null;tap.disconnect();EX=null;A.mon.gain.value=1;
+  const sr=ac.sampleRate,d=n*4,buf=new ArrayBuffer(44+d),v=new DataView(buf),w=(s,x)=>{for(let i=0;i<s.length;i++)v.setUint8(x+i,s.charCodeAt(i))};
+  w('RIFF',0);v.setUint32(4,36+d,true);w('WAVE',8);w('fmt ',12);v.setUint32(16,16,true);v.setUint16(20,1,true);v.setUint16(22,2,true);v.setUint32(24,sr,true);v.setUint32(28,sr*4,true);v.setUint16(32,4,true);v.setUint16(34,16,true);w('data',36);v.setUint32(40,d,true);
+  let off=44;for(const q of P){new Int16Array(buf,off,q.length).set(q);off+=q.length*2}
+  const u=URL.createObjectURL(new Blob([buf],{type:'audio/wav'}));
+  o.innerHTML=`<small>WAV · ${(n/sr).toFixed(1)} সেকেন্ড · ${(buf.byteLength/1048576).toFixed(1)} MB</small><audio src="${u}" controls style="width:100%"></audio><div class="row"><a class="b" download="madrasa-voice.wav" href="${u}" style="text-decoration:none">ডাউনলোড</a></div>`};
+ const cv=document.createElement('canvas');cv.width=cv.height=8;
+ EX={g:cv.getContext('2d'),W:8,H:8,mr:{stop:()=>setTimeout(fin,(V.rv||V.ec)?1800:150)}};T=0;playing=true;o.innerHTML='<small id="exs">⏺ প্রসেস হচ্ছে…</small>'};
+
+// ================= ElevenLabs: টেক্সট টু ভয়েস ও ভয়েস ক্লোন =================
+const ELB='https://api.elevenlabs.io',ELM=[['eleven_v3','Eleven v3 · বাংলাসহ ৭০+ ভাষা (সুপারিশ)',5000],['eleven_v4','Eleven v4 · সর্বশেষ, ৯০+ ভাষা',5000],['eleven_multilingual_v2','Multilingual v2 · ২৯ ভাষা (বাংলা নেই)',10000],['eleven_flash_v2_5','Flash v2.5 · দ্রুত ও সস্তা',40000]];
+let EV=[],CLS=[];
+const ls={g:k=>{try{return localStorage.getItem(k)||''}catch(e){return ''}},s:(k,v)=>{try{v?localStorage.setItem(k,v):localStorage.removeItem(k)}catch(e){}}};
+$('elk').value=ls.g('ms_el_key');
+ELM.forEach(([v,l])=>{const o=document.createElement('option');o.value=v;o.textContent=l;$('elm').append(o)});$('elm').value=ls.g('ms_el_model')||'eleven_v3';
+const ELS=[['st','স্টেবিলিটি',0,1,.05,.5],['sm','সিমিলারিটি',0,1,.05,.75],['sy','স্টাইল',0,1,.05,0],['sp','স্পিড',.7,1.2,.05,1]];
+ELS.forEach(([k,l,mn,mx,st,df])=>{const d=document.createElement('div');d.className='s';d.innerHTML=`<span>${l}</span><input type="range" id="es_${k}" min="${mn}" max="${mx}" step="${st}" value="${df}"><span id="ew_${k}">${df}</span>`;$('elsl').append(d);d.querySelector('input').oninput=e=>{$('ew_'+k).textContent=e.target.value}});
+['[whispers]','[excited]','[sighs]','[laughs]','[sad]','[calm]'].forEach(g=>{const b=document.createElement('button');b.className='fxc';b.textContent=g;b.onclick=()=>{const a=$('elt'),s=a.selectionStart||0,e=a.selectionEnd||0;a.value=a.value.slice(0,s)+g+' '+a.value.slice(e);a.focus();elCnt()};$('elg').append(b)});
+const elLim=()=>(ELM.find(m=>m[0]==$('elm').value)||[0,0,5000])[2];
+function elCnt(){const n=$('elt').value.length,l=elLim();$('elc').textContent=`(${n}/${l} অক্ষর${n>l?' · ভাগ করে জোড়া লাগবে':''})`;const v3=/^eleven_v[34]/.test($('elm').value);$('elg').hidden=!v3;$('elsbw').hidden=v3}
+$('elt').oninput=elCnt;$('elm').onchange=()=>{ls.s('ms_el_model',$('elm').value);elCnt()};elCnt();
+const ELK=()=>$('elk').value.trim();
+async function elErr(r){let m='ত্রুটি '+r.status;try{const j=await r.json(),d=j.detail||j;m=(d&&(d.message||d.status))||(typeof d=='string'?d:m)}catch(e){}
+ if(r.status==401)m='API কী ভুল বা অনুমতি নেই — '+m;else if(r.status==402||r.status==403)m='প্ল্যান বা ক্রেডিট সমস্যা — '+m;else if(r.status==429)m='অনেক বেশি অনুরোধ, একটু পরে চেষ্টা করুন — '+m;return new Error(m)}
+async function elVoices(keep){const k=ELK();if(!k)return msg('আগে ElevenLabs API কী দিন');ls.s('ms_el_key',k);const sel=$('elv');sel.innerHTML='<option>লোড হচ্ছে…</option>';
+ try{const h={'xi-api-key':k};let r=await fetch(ELB+'/v2/voices?page_size=100',{headers:h});if(r.status==404)r=await fetch(ELB+'/v1/voices',{headers:h});if(!r.ok)throw await elErr(r);
+  EV=(await r.json()).voices||[];sel.innerHTML='';const mk=(lb,arr)=>{if(!arr.length)return;const g=document.createElement('optgroup');g.label=lb;arr.forEach(v=>{const o=document.createElement('option');o.value=v.voice_id;o.textContent=v.name;g.append(o)});sel.append(g)};
+  mk('🧬 আমার ক্লোন / কাস্টম ভয়েস',EV.filter(v=>v.category=='cloned'||v.category=='professional'));mk('📚 অন্যান্য ভয়েস',EV.filter(v=>v.category!='cloned'&&v.category!='professional'));
+  const sv=keep||ls.g('ms_el_voice');if(sv&&EV.some(v=>v.voice_id==sv))sel.value=sv;msg('✅ '+EV.length+'টি ভয়েস লোড হয়েছে')}
+ catch(e){sel.innerHTML='<option value="">লোড করা যায়নি</option>';msg('⚠️ '+e.message)}}
+$('elks').onclick=()=>elVoices();$('elv').onchange=()=>ls.s('ms_el_voice',$('elv').value);
+$('elp').onclick=()=>{const v=EV.find(x=>x.voice_id==$('elv').value);if(v&&v.preview_url)new Audio(v.preview_url).play().catch(()=>msg('নমুনা চালানো যায়নি'));else msg('এই ভয়েসের নমুনা নেই')};
+if(ELK())elVoices();
+function elSplit(tx,lim){const out=[];let cur='';for(const p of tx.split(/(?<=[।.!?\n])/)){if((cur+p).length>lim&&cur){out.push(cur);cur=''}let q=p;while(q.length>lim){out.push(q.slice(0,lim));q=q.slice(lim)}cur+=q}if(cur.trim())out.push(cur);return out}
+function wavMono(f,sr){const d=f.length*2,b=new ArrayBuffer(44+d),v=new DataView(b),w=(s,x)=>{for(let i=0;i<s.length;i++)v.setUint8(x+i,s.charCodeAt(i))};w('RIFF',0);v.setUint32(4,36+d,true);w('WAVE',8);w('fmt ',12);v.setUint32(16,16,true);v.setUint16(20,1,true);v.setUint16(22,1,true);v.setUint32(24,sr,true);v.setUint32(28,sr*2,true);v.setUint16(32,2,true);v.setUint16(34,16,true);w('data',36);v.setUint32(40,d,true);for(let i=0;i<f.length;i++)v.setInt16(44+i*2,Math.max(-1,Math.min(1,f[i]))*32767,true);return new Blob([b],{type:'audio/wav'})}
+async function elJoin(bl,x0){if(bl.length==1)return{blob:bl[0],ext:x0||'mp3'};const ac=new(window.AudioContext||window.webkitAudioContext)(),bf=[];for(const b of bl)bf.push(await ac.decodeAudioData(await b.arrayBuffer()));const sr=bf[0].sampleRate,gap=Math.round(sr*.12),n=bf.reduce((a,b)=>a+b.length+gap,0),o=new Float32Array(n);let p=0;for(const b of bf){o.set(b.getChannelData(0),p);p+=b.length+gap}ac.close();return{blob:wavMono(o,sr),ext:'wav'}}
+const BN1='শূন্য এক দুই তিন চার পাঁচ ছয় সাত আট নয় দশ এগারো বারো তেরো চৌদ্দ পনেরো ষোলো সতেরো আঠারো ঊনিশ বিশ একুশ বাইশ তেইশ চব্বিশ পঁচিশ ছাব্বিশ সাতাশ আটাশ ঊনত্রিশ ত্রিশ একত্রিশ বত্রিশ তেত্রিশ চৌত্রিশ পঁয়ত্রিশ ছত্রিশ সাঁইত্রিশ আটত্রিশ ঊনচল্লিশ চল্লিশ একচল্লিশ বিয়াল্লিশ তেতাল্লিশ চুয়াল্লিশ পঁয়তাল্লিশ ছেচল্লিশ সাতচল্লিশ আটচল্লিশ ঊনপঞ্চাশ পঞ্চাশ একান্ন বাহান্ন তিপ্পান্ন চুয়ান্ন পঞ্চান্ন ছাপ্পান্ন সাতান্ন আটান্ন ঊনষাট ষাট একষট্টি বাষট্টি তেষট্টি চৌষট্টি পঁয়ষট্টি ছেষট্টি সাতষট্টি আটষট্টি ঊনসত্তর সত্তর একাত্তর বাহাত্তর তিয়াত্তর চুয়াত্তর পঁচাত্তর ছিয়াত্তর সাতাত্তর আটাত্তর ঊনআশি আশি একাশি বিরাশি তিরাশি চুরাশি পঁচাশি ছিয়াশি সাতাশি আটাশি ঊননব্বই নব্বই একানব্বই বিরানব্বই তিরানব্বই চুরানব্বই পঁচানব্বই ছিয়ানব্বই সাতানব্বই আটানব্বই নিরানব্বই'.split(' ');
+function bnW(n){if(n<100)return BN1[n];for(const[v,w]of[[1e7,'কোটি'],[1e5,'লাখ'],[1e3,'হাজার'],[100,'শো']])if(n>=v){const q=Math.floor(n/v),r=n%v;return bnW(q)+' '+w+(r?' '+bnW(r):'')}}
+function bnNum(t){if(!/[\u0980-\u09FF]/.test(t))return t;const dg=x=>[...x].map(c=>BN1[+c]).join(' ');return t.replace(/[০-৯]/g,c=>'০১২৩৪৫৬৭৮৯'.indexOf(c)).replace(/\d+(?:\.\d+)?/g,m=>{const[a,b]=m.split('.'),w=(a.length>1&&a[0]=='0')||a.length>=8?dg(a):bnW(+a);return w+(b?' দশমিক '+dg(b):'')})}
+$('elgo').onclick=async()=>{const k=ELK(),vid=$('elv').value,tx=$('elt').value.trim(),mo=$('elm').value;if(!k)return msg('আগে ElevenLabs API কী দিন');if(!vid)return msg('একটি ভয়েস বাছুন (কী দিয়ে "ভয়েস লোড" চাপুন)');if(!tx)return msg('লেখা লিখুন');
+ const b=$('elgo'),o=$('elo'),v3=/^eleven_v[34]/.test(mo),snap=x=>x<.25?0:x<.75?.5:1;b.disabled=true;
+ const vs={stability:v3?snap(+$('es_st').value):+$('es_st').value,similarity_boost:+$('es_sm').value,speed:+$('es_sp').value};if(!v3){vs.style=+$('es_sy').value;vs.use_speaker_boost=$('elsb').checked}
+ const nx=$('eln').checked?bnNum(tx):tx,parts=elSplit(nx,Math.min(elLim()-300,9000)),bl=[],bnT=/[\u0980-\u09FF]/.test(nx),lc=/^eleven_(v3|v4|flash)/.test(mo);let ef=$('elf').value;
+  try{for(let i=0;i<parts.length;i++){o.innerHTML=`<small>⏳ তৈরি হচ্ছে… (${i+1}/${parts.length})</small>`;
+    const bd={text:parts[i],model_id:mo,voice_settings:vs};if(i)bd.previous_text=parts[i-1].slice(-400);if(i<parts.length-1)bd.next_text=parts[i+1].slice(0,400);if(lc&&bnT)bd.language_code='bn';
+    let r;for(let t=0;t<3;t++){r=await fetch(`${ELB}/v1/text-to-speech/${vid}?output_format=${ef}`,{method:'POST',headers:{'xi-api-key':k,'Content-Type':'application/json',Accept:'*/*'},body:JSON.stringify(bd)});if(r.ok)break;if((r.status==400||r.status==422)&&bd.language_code){delete bd.language_code;continue}if((r.status==402||r.status==403)&&ef!='mp3_44100_128'){ef='mp3_44100_128';msg('এই মান আপনার প্ল্যানে নেই — MP3 128k-এ তৈরি হচ্ছে');continue}break}
+    if(!r.ok)throw await elErr(r);let b2=await r.blob();if(ef=='pcm_44100'){const i16=new Int16Array(await b2.arrayBuffer()),f=new Float32Array(i16.length);for(let j=0;j<f.length;j++)f[j]=i16[j]/32768;b2=wavMono(f,44100)}bl.push(b2)}
+  const {blob,ext}=await elJoin(bl,ef=='pcm_44100'?'wav':'mp3'),u=URL.createObjectURL(blob);
+  o.innerHTML=`<small>✅ তৈরি হয়েছে — ভয়েস এডিটিং-এর ক্লিপেও যোগ হয়েছে। এখান থেকেই ডাউনলোড করতে পারেন, অথবা নয়েজ/ইফেক্ট/ইকিউ দিয়ে এডিট করতে ভয়েস এডিটিং-এ যান।</small><audio src="${u}" controls style="width:100%"></audio><div class="row"><a class="g" download="ai-voice.${ext}" href="${u}" style="text-decoration:none">⬇️ ডাউনলোড</a><button class="b" data-m="voice">🎧 ভয়েস এডিটিং-এ যান</button></div>`;
+  await addFiles([new File([blob],'AI ভয়েস.'+ext,{type:blob.type})])}
+ catch(e){o.innerHTML=`<small style="color:#c0392b">⚠️ ${e.message}</small>`}finally{b.disabled=false}};
+// ক্লোন
+async function clDec(f){const ac=new(window.AudioContext||window.webkitAudioContext)();try{return await ac.decodeAudioData(await f.arrayBuffer())}finally{ac.close()}}
+function clMono(ab){const n=ab.length,o=new Float32Array(n),c=ab.numberOfChannels;for(let k=0;k<c;k++){const d=ab.getChannelData(k);for(let i=0;i<n;i++)o[i]+=d[i]/c}return o}
+function clStat(ab){const d=clMono(ab),n=d.length,fr=Math.round(ab.sampleRate*.02),R=[];let cl=0;for(let i=0;i<n;i++){if(Math.abs(d[i])>.985)cl++}
+ for(let i=0;i+fr<=n;i+=fr){let q=0;for(let j=0;j<fr;j++)q+=d[i+j]*d[i+j];R.push(Math.sqrt(q/fr))}
+ const so=[...R].sort((x,y)=>x-y),pc=p=>so[Math.floor(so.length*p)]||1e-6,db=x=>20*Math.log10(Math.max(x,1e-6));return{d,fr,R,dur:n/ab.sampleRate,cl:cl/n,nf:db(pc(.1)),snr:db(pc(.9))-db(pc(.1))}}
+function clPrep(ab){const S=clStat(ab),th=Math.pow(10,Math.max(S.nf+10,-50)/20),pad=Math.round(.15*ab.sampleRate);let a=S.R.findIndex(x=>x>th),b=S.R.length-1;while(b>0&&S.R[b]<=th)b--;if(a<0)return wavMono(S.d,ab.sampleRate);const o=S.d.slice(Math.max(0,a*S.fr-pad),Math.min(S.d.length,(b+1)*S.fr+pad));let pk=0;for(let i=0;i<o.length;i++)pk=Math.max(pk,Math.abs(o[i]));const g=pk>0?.8/pk:1;for(let i=0;i<o.length;i++)o[i]*=g;return wavMono(o,ab.sampleRate)}
+let CQ=0;async function clQ(){const id=++CQ,o=$('clq');if(!CLS.length){o.innerHTML='';return}o.innerHTML='<small>🔬 নমুনা বিশ্লেষণ হচ্ছে…</small>';let tot=0,h='';const mm=t=>Math.floor(t/60)+':'+String(Math.round(t%60)).padStart(2,'0');
+ for(const f of CLS){try{const S=clStat(await clDec(f));tot+=S.dur;const v=S.cl>.001?'⚠️ ভলিউম ফেটে যাচ্ছে — মাইক থেকে একটু দূরে বলুন':S.snr>=25?'✅ পরিষ্কার':S.snr>=15?'⚠️ কিছু নয়েজ — নয়েজ সরানো চালু রাখুন':'❌ বেশি নয়েজ — শান্ত জায়গায় আবার রেকর্ড করুন';h+=`<small>🎵 ${f.name}: ${mm(S.dur)} · SNR ${Math.round(S.snr)}dB · ${v}</small><br>`}catch(e){h+=`<small>🎵 ${f.name}: বিশ্লেষণ করা যায়নি</small><br>`}}
+ if(id!=CQ)return;h+=`<small><b>মোট ${mm(tot)}</b> — ${tot<60?'⚠️ ১ মিনিটের কম; ১–৩ মিনিট দিলে সাদৃশ্য ও স্বাভাবিকতা অনেক বাড়ে':tot>300?'৫ মিনিটের বেশি লাগে না; সেরা অংশ রাখুন':'✅ দৈর্ঘ্য ঠিক আছে'}</small>`;o.innerHTML=h}
+function clList(){$('cll').innerHTML='';CLS.forEach((f,i)=>{const d=document.createElement('div');d.className='row';d.innerHTML=`<small style="flex:1">🎵 ${f.name} (${(f.size/1048576).toFixed(1)} MB)</small>`;const x=document.createElement('button');x.className='g';x.textContent='✕';x.onclick=()=>{CLS.splice(i,1);clList()};d.append(x);$('cll').append(d)});clQ()}
+$('clf').onclick=()=>$('clfi').click();$('clfi').onchange=e=>{CLS.push(...[...e.target.files]);CLS=CLS.slice(0,10);e.target.value='';clList()};
+let CLR=null;$('clr').onclick=async()=>{if(CLR){CLR.mr.stop();return}
+ try{const st=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:false,noiseSuppression:false,autoGainControl:false}}),mt=['audio/mp4','audio/webm;codecs=opus','audio/webm'].find(q=>MediaRecorder.isTypeSupported(q))||'',ch=[],mr=new MediaRecorder(st,mt?{mimeType:mt}:{});
+  mr.ondataavailable=e=>e.data.size&&ch.push(e.data);mr.onstop=()=>{st.getTracks().forEach(q=>q.stop());clearInterval(CLR.iv);CLR=null;$('clr').textContent='🎤 রেকর্ড করুন';const ty=(mr.mimeType||mt||'audio/webm').split(';')[0];CLS.push(new File([new Blob(ch,{type:ty})],'নমুনা-'+(CLS.length+1)+'.'+(ty.includes('mp4')?'m4a':'webm'),{type:ty}));clList()};
+  mr.start();CLR={mr,t0:Date.now(),iv:setInterval(()=>{$('clr').textContent='⏹ থামান ('+Math.floor((Date.now()-CLR.t0)/1000)+' সে)'},500)};$('clr').textContent='⏹ থামান (0 সে)'}catch(e){msg('মাইক্রোফোনের অনুমতি দিন')}};
+$('clg').onclick=async()=>{const k=ELK(),nm=$('cln').value.trim(),o=$('clo');if(!k)return msg('আগে "টেক্সট টু স্পিচ" ট্যাবে ElevenLabs API কী দিন');if(!nm)return msg('ক্লোনের একটি নাম দিন');if(!CLS.length)return msg('অন্তত একটি ভয়েস নমুনা দিন');if(!$('clc').checked)return msg('অনুমতির ঘরে টিক দিন');
+ const b=$('clg'),fd=new FormData();fd.append('name',nm);fd.append('remove_background_noise',$('clb').checked?'true':'false');fd.append('description','মাদ্রাসা স্টুডিও থেকে তৈরি');b.disabled=true;o.innerHTML='<small>⏳ ক্লোন তৈরি হচ্ছে… (কয়েক সেকেন্ড থেকে ১ মিনিট)</small>';
+ try{let L=CLS;if($('clp').checked){o.innerHTML='<small>✨ নমুনা প্রস্তুত হচ্ছে…</small>';L=[];for(const f of CLS){try{L.push(new File([clPrep(await clDec(f))],f.name.replace(/\.\w+$/,'')+'.wav',{type:'audio/wav'}))}catch(e){L.push(f)}}o.innerHTML='<small>⏳ ক্লোন তৈরি হচ্ছে… (কয়েক সেকেন্ড থেকে ১ মিনিট)</small>'}L.forEach(f=>fd.append('files',f,f.name));const r=await fetch(ELB+'/v1/voices/add',{method:'POST',headers:{'xi-api-key':k},body:fd});if(!r.ok)throw await elErr(r);const j=await r.json();CLS=[];clList();await elVoices(j.voice_id);ls.s('ms_el_voice',j.voice_id);o.innerHTML='<small>✅ ক্লোন তৈরি হয়েছে এবং "টেক্সট টু স্পিচ"-এর ভয়েস তালিকায় বাছাই করা আছে।'+(j.requires_verification?' (ElevenLabs-এ ভেরিফিকেশন লাগতে পারে)':'')+'</small>'}
+ catch(e){o.innerHTML=`<small style="color:#c0392b">⚠️ ${e.message}</small>`}finally{b.disabled=false}};
+$('cld').onclick=async()=>{const k=ELK(),id=$('elv').value,v=EV.find(x=>x.voice_id==id);if(!k||!v)return msg('"টেক্সট টু স্পিচ" ট্যাবে কী দিয়ে ভয়েস বাছুন');if(v.category!='cloned')return msg('শুধু আপনার ক্লোন করা ভয়েস মোছা যায়');if(!confirm('"'+v.name+'" ক্লোনটি ElevenLabs থেকে মুছে ফেলবেন?'))return;
+ try{const r=await fetch(ELB+'/v1/voices/'+id,{method:'DELETE',headers:{'xi-api-key':k}});if(!r.ok)throw await elErr(r);ls.s('ms_el_voice','');await elVoices();msg('🗑️ ক্লোন মোছা হয়েছে')}catch(e){msg('⚠️ '+e.message)}};
+async function addFiles(files){for(const f of files){const m=await mediaFrom(f);if(!m||!m.w||!m.h){msg('এই ফাইলটি খোলা যায়নি — JPG, PNG বা MP4 ফাইল বেছে নিন');continue}if(!clips.length){EXS.ar0=m.w/m.h;if(EXS.arS=='auto'){ar=m.w/m.h;sizeC()}expUI()}const k=m.kind=='video'?{kind:'video',m,a:0,b:m.dur,tr:'none',td:.8}:{kind:'image',m,dur:4,tr:'none',td:.8};const p=sel>=0?sel+1:clips.length;clips.splice(p,0,k);sel=p;if(A&&m.kind=='video')wire(m);layout()}T=starts[sel]||0;ui()}
 // ---------- drawing ----------
-function media(g,m,w,h,z){const s=m.kind=='video'?m.el:m.img,k=Math.max(w/m.w,h/m.h)*z;g.drawImage(s,(w-m.w*k)/2,(h-m.h*k)/2,m.w*k,m.h*k)}
+function media(g,m,w,h,z){if(m.audio){audVis(g,m,w,h);return}const s=m.kind=='video'?m.el:m.img,k=(EXS.fit?Math.min:Math.max)(w/m.w,h/m.h)*z;if(EXS.fit){g.fillStyle='#000';g.fillRect(0,0,w,h)}g.drawImage(s,(w-m.w*k)/2,(h-m.h*k)/2,m.w*k,m.h*k)}
 function fit(g,s,w,size,wt){g.font=`${wt||700} ${size}px ${FT}`;const tw=g.measureText(s).width;if(tw>w){size*=w/tw;g.font=`${wt||700} ${size}px ${FT}`}return size}
 function card(g,w,h,t,Ln,k){const ST={teal:['#0fa38f','#042f2a','#ffffff','#e3bd5c'],gold:['#2b1d07','#0d0903','#f6e7b4','#e3bd5c'],white:['#ffffff','#dcefec','#0b3f39','#0b8f7d']}[k.style||'teal'];
 const gr=g.createLinearGradient(0,0,w,h);gr.addColorStop(0,ST[0]);gr.addColorStop(1,ST[1]);g.fillStyle=gr;g.fillRect(0,0,w,h);
@@ -403,8 +575,10 @@ $('ad').onclick=$('first').onclick=()=>$('fm').click();
 $('fm').onchange=e=>{addFiles([...e.target.files]);e.target.value=''};
 $('ac').onclick=()=>{const m=+$('cp').value,p=m==0?0:m==2?clips.length:Math.max(0,sel+1);clips.splice(p,0,{kind:'card',dur:3,t1:INFO.name||'আপনার মাদ্রাসার নাম',t2:'স্বাগতম',style:'teal',tr:'fade',td:.8});sel=p;ui();T=starts[p]};
 // ---------- tabs / theme ----------
-$('tabs').onclick=e=>{const t=e.target.dataset.t;if(t)tab(t)};
-function tab(t){const ts=MT[cur];if(!ts||!ts.includes(t))return;document.querySelectorAll('#tabs button').forEach(b=>b.classList.toggle('on',b.dataset.t==t));['clip','fx','txt','vo','out'].forEach(n=>$('p_'+n).hidden=n!=t)}
+const PN=['vg','vh','vi','tts','cl','clip','set','card','fx','adj','txt','stk','vn','vf','vq','vm','out'],LT={},TD={vg:['vgen','তৈরি'],vh:['hist','হিস্ট্রি'],vi:['music','অডিও'],tts:['tts','টেক্সট টু স্পিচ'],cl:['clone','ভয়েস ক্লোন'],clip:['scissors','কাট'],set:['clip','ক্লিপ'],card:['card','কার্ড'],fx:['filter','ফিল্টার'],adj:['adjust','অ্যাডজাস্ট'],txt:['text','লেখা'],stk:['sticker','স্টিকার'],vn:['noise','নয়েজ'],vf:['sparkle','ইফেক্ট'],vq:['eq','ইকিউ'],vm:['volume','ভলিউম'],out:['save','সেভ']};
+for(const k in TD){const b=document.createElement('button');b.dataset.t=k;b.innerHTML=`<span class="ni"><svg class="i" aria-hidden="true"><use href="#i-${TD[k][0]}"/></svg></span>${TD[k][1]}`;$('tools').append(b)}
+$('tools').onclick=e=>{const b=e.target.closest('[data-t]');if(b)tab(b.dataset.t,1)};
+function tab(t,tg){const ts=MT[cur];if(!ts||(t&&!ts.includes(t)))return;if(tg&&t&&LT[cur]===t)t=null;LT[cur]=t;document.querySelectorAll('#tools button').forEach(b=>b.classList.toggle('on',b.dataset.t==t));PN.forEach(n=>$('p_'+n).hidden=n!=t);if(t=='out')expUI()}
 $('th').onclick=()=>{const r=document.documentElement,d=r.dataset.theme||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');r.dataset.theme=d=='dark'?'light':'dark'};
 // ---------- filter UI ----------
 function badge(t){const b=$('fxn');b.textContent=t;b.style.opacity=t?1:0;clearTimeout(badge.t);if(t)badge.t=setTimeout(()=>b.style.opacity=0,3200)}
@@ -494,32 +668,51 @@ function NSP(N){
 
 const VD={nr:0,ng:0,lc:0,hc:0,ec:0,rv:0,bs:0,wm:0,pr:0,tb:0,cm:0,vl:100},VL={nr:'নয়েজ রিমুভ (AI)',ng:'নয়েজ গেট',lc:'লো-কাট (গুনগুন/ফ্যান)',hc:'হাই-কাট (হিস)',ec:'ইকো',rv:'রিভার্ব (হল)',bs:'বেস',wm:'ওয়ার্মথ',pr:'ক্লিয়ারনেস',tb:'ট্রেবল/এয়ার',cm:'কম্প্রেশন',vl:'ভলিউম'},VR={nr:[0,100],ng:[0,100],lc:[0,100],hc:[0,100],ec:[0,100],rv:[0,100],bs:[-10,10],wm:[-10,10],pr:[-10,10],tb:[-10,10],cm:[0,100],vl:[50,200]};
 const VP={'🎙️ স্টুডিও প্রফেশনাল':{nr:60,ng:15,lc:25,rv:6,bs:2,wm:2,pr:4,tb:3,cm:60,vl:120},'🔇 নয়েজ ক্লিন (হাই লেভেল)':{nr:85,ng:30,lc:40,hc:10,pr:3,cm:35,vl:110},'📻 ব্রডকাস্ট ভয়েস':{nr:55,ng:20,lc:30,bs:3,wm:3,pr:5,tb:2,cm:75,vl:125},'🕌 হল / ওয়াজ':{nr:45,ng:10,lc:20,ec:20,rv:35,pr:2,cm:40,vl:110},'🏛️ হল-ইকো':{nr:30,ec:55,rv:20,pr:2,vl:105},'🧔 ভারী গলা':{nr:40,ng:10,lc:15,bs:6,wm:4,pr:2,cm:45,vl:110},'↺ অরিজিনাল':{}};
+const VG={nr:'vn',ng:'vn',lc:'vn',hc:'vn',ec:'vf',rv:'vf',bs:'vq',wm:'vq',pr:'vq',tb:'vq',cm:'vm',vl:'vm'};
 let V={...VD};
 function ensureA(){if(A)return A;try{const ac=new(window.AudioContext||window.webkitAudioContext)(),mk=n=>ac[n](),inp=mk('createGain'),hp=mk('createBiquadFilter'),hp2=mk('createBiquadFilter'),gt=ac.createScriptProcessor(2048,1,1),lp=mk('createBiquadFilter'),wm=mk('createBiquadFilter'),bs=mk('createBiquadFilter'),pr=mk('createBiquadFilter'),tb=mk('createBiquadFilter'),cp=mk('createDynamicsCompressor'),vg=mk('createGain'),lim=mk('createDynamicsCompressor'),out=mk('createGain'),dl=ac.createDelay(1),fb=mk('createGain'),wt=mk('createGain'),cv=ac.createConvolver(),rg=mk('createGain'),mon=mk('createGain'),ad=mk('createMediaStreamDestination'),ns=new NSP(1024);
 hp.type=hp2.type='highpass';hp.Q.value=hp2.Q.value=.707;lp.type='lowpass';wm.type='peaking';wm.frequency.value=230;wm.Q.value=.9;bs.type='lowshelf';bs.frequency.value=200;pr.type='peaking';pr.frequency.value=3000;tb.type='highshelf';tb.frequency.value=8000;lim.threshold.value=-2;lim.ratio.value=20;lim.attack.value=.003;lim.release.value=.1;dl.delayTime.value=.26;
 {const n=Math.floor(ac.sampleRate*1.9),ir=ac.createBuffer(2,n,ac.sampleRate);for(let c=0;c<2;c++){const d=ir.getChannelData(c);for(let i=0;i<n;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/n,2.6)}cv.buffer=ir}
 ns.onl=()=>msg('✅ নয়েজ প্রোফাইল শেখা হয়েছে');
-A={ac,inp,hp,hp2,lp,wm,bs,pr,tb,cp,vg,fb,wt,rg,ns,mon,ad,th:0,g:1,env:0};
+A={ac,inp,hp,hp2,lp,wm,bs,pr,tb,cp,vg,fb,wt,rg,ns,mon,ad,out,th:0,g:1,env:0};
 gt.onaudioprocess=e=>{const i=e.inputBuffer.getChannelData(0),o=e.outputBuffer.getChannelData(0),th=A.th;A.ns.run(i,o);let g=A.g,env=A.env;for(let k=0;k<o.length;k++){const a=Math.abs(o[k]);env=a>env?a:env*.9997;const t=env<th?.04:1;g+=(t-g)*(t>g?.02:.0006);o[k]*=g}A.g=g;A.env=env};
 inp.connect(hp);hp.connect(hp2);hp2.connect(gt);gt.connect(lp);lp.connect(wm);wm.connect(bs);bs.connect(pr);pr.connect(tb);tb.connect(cp);cp.connect(vg);vg.connect(lim);lim.connect(out);lim.connect(dl);dl.connect(fb);fb.connect(dl);dl.connect(wt);wt.connect(out);lim.connect(cv);cv.connect(rg);rg.connect(out);out.connect(ad);out.connect(mon);mon.connect(ac.destination);
 clips.forEach(k=>k.m&&k.m.kind=='video'&&wire(k.m));applyV();return A}catch(e){A=null;return null}}
 function wire(m){if(!A||m.wd)return;try{A.ac.createMediaElementSource(m.el).connect(A.inp);m.wd=1}catch(e){}}
 function applyV(){if(!A)return;const v=V,hf=Math.max(v.lc?30+v.lc*2.7:0,v.nr?55+v.nr*.6:10);A.ns.s=v.nr/100;A.th=v.ng?.002+v.ng/100*.03:0;A.hp.frequency.value=hf;A.hp2.frequency.value=hf;A.lp.frequency.value=Math.max(3800,20000-v.hc*160);A.wm.gain.value=v.wm;A.bs.gain.value=v.bs;A.pr.gain.value=v.pr;A.tb.gain.value=v.tb;A.cp.threshold.value=v.cm?-12-v.cm*.3:0;A.cp.ratio.value=v.cm?2+v.cm*.1:1;A.cp.knee.value=20;A.cp.attack.value=.01;A.cp.release.value=.25;A.vg.gain.value=v.vl/100*(1+v.cm*.008);A.fb.gain.value=.2+v.ec*.0035;A.wt.gain.value=v.ec/130;A.rg.gain.value=v.rv/100*.9}
 function syncV(n){for(const k in VL){$('w_'+k).textContent=V[k];if(!n)$('q_'+k).value=V[k]}applyV()}
-for(const k in VL){const d=document.createElement('div');d.className='s';d.innerHTML=`<span>${VL[k]}</span><input type="range" id="q_${k}" min="${VR[k][0]}" max="${VR[k][1]}" step="1"><span id="w_${k}"></span>`;$('vs').append(d);d.querySelector('input').oninput=e=>{V[k]=+e.target.value;syncV(1)}}
+for(const k in VL){const d=document.createElement('div');d.className='s';d.innerHTML=`<span>${VL[k]}</span><input type="range" id="q_${k}" min="${VR[k][0]}" max="${VR[k][1]}" step="1"><span id="w_${k}"></span>`;$('vs_'+VG[k]).append(d);d.querySelector('input').oninput=e=>{V[k]=+e.target.value;syncV(1)}}
 for(const n in VP){const b=document.createElement('button');b.className='g';b.textContent=n;b.onclick=()=>{V={...VD,...VP[n]};syncV()};$('vpre').append(b)}
 $('nl').onclick=()=>{if(!ensureA())return msg('এই ব্রাউজারে সমর্থিত নয়');if(!V.nr){V.nr=70;syncV()}const n=A.ns;n.acc.fill(0);n.lc=0;n.lock=0;n.learn=150;A.ac.resume();msg('🎯 ভিডিও প্লে করুন — নয়েজের (কথাহীন) অংশ শিখছি…')};
 $('na').onclick=()=>{if(A){A.ns.lock=0;A.ns.learn=0;A.ns.wu=0}msg('♻️ অটো নয়েজ ডিটেকশন চালু')};
 syncV();
 // ---------- export ----------
-$('eh').oninput=fixW;$('ra').onclick=fixW;
+var EXS={arS:'auto',rsS:1080,fpS:30,fit:0,ar0:16/9,res:1080,fps:30,br:8e6};
+const ARL=[['auto','মূল'],['16:9','16:9'],['9:16','9:16'],['1:1','1:1'],['4:5','4:5'],['4:3','4:3'],['3:4','3:4'],['21:9','21:9'],['x','কাস্টম']],RSL=[[360,'360p'],[480,'480p'],[720,'720p HD'],[1080,'1080p FHD'],[1440,'1440p 2K'],[2160,'2160p 4K'],['x','কাস্টম']],FPL=[[24,'24'],[30,'30'],[60,'60'],['x','কাস্টম']],FTL=[[0,'ফ্রেম ভরুন (ক্রপ)'],[1,'পুরো দৃশ্য (ফিট)']];
+function mkOp(id,list,key){const box=$(id);list.forEach(([v,l])=>{const b=document.createElement('button');b.className='fxc';b.textContent=l;b.dataset.v=v;b.onclick=()=>{EXS[key]=key=='fit'?+v:(v=='x'?'x':(isNaN(+v)?v:+v));expUI()};box.append(b)})}
+mkOp('arc',ARL,'arS');mkOp('rsc',RSL,'rsS');mkOp('fpc',FPL,'fpS');mkOp('ftc',FTL,'fit');
+['arw','arh','rsv','fpv'].forEach(i=>$(i).oninput=expUI);
+function expUI(){
+ const arv=EXS.arS=='auto'?EXS.ar0:EXS.arS=='x'?(Math.max(1,+$('arw').value)||16)/(Math.max(1,+$('arh').value)||9):(q=>q[0]/q[1])(EXS.arS.split(':').map(Number));
+ const rs=EXS.rsS=='x'?Math.max(144,Math.min(4320,+$('rsv').value||1080)):EXS.rsS,fp=EXS.fpS=='x'?Math.max(10,Math.min(60,+$('fpv').value||30)):EXS.fpS;
+ if(Math.abs(arv-ar)>1e-4){ar=arv;sizeC()}
+ let W,H;if(ar>=1){H=rs;W=rs*ar}else{W=rs;H=rs/ar}
+ W=Math.max(2,Math.round(W/2)*2);H=Math.max(2,Math.round(H/2)*2);
+ EXS.res=rs;EXS.fps=fp;EXS.br=Math.round(Math.max(1.5e6,Math.min(5e7,W*H*fp*.12)));
+ $('ew').value=W;$('eh').value=H;
+ const on=(id,key)=>document.querySelectorAll('#'+id+' button').forEach(b=>b.classList.toggle('on',String(b.dataset.v)==String(EXS[key])));
+ on('arc','arS');on('rsc','rsS');on('fpc','fpS');on('ftc','fit');
+ $('arx').hidden=EXS.arS!='x';$('rsx').hidden=EXS.rsS!='x';$('fpx').hidden=EXS.fpS!='x';$('fpg').hidden=cur=='photo';$('dlar').hidden=cur!='voice';
+ $('osum').textContent=`আউটপুট: ${W}×${H}`+(cur=='photo'?'':` · ${fp} fps · প্রায় ${(EXS.br/1e6).toFixed(1)} Mbps`);
+}
+setTimeout(expUI,0);
 $('dl').onclick=()=>{if(!clips.length)return msg('আগে ছবি বা ভিডিও যোগ করুন');pause();pick(null);const o=$('out'),H=Math.max(2,Math.round((+$('eh').value||1080)/2)*2),W=Math.max(2,Math.round((+$('ew').value||H*ar)/2)*2),e=document.createElement('canvas');e.width=W;e.height=H;
 if(clips.length==1&&clips[0].kind=='image'){T=0;render(e.getContext('2d'),W,H,0,false);const u=e.toDataURL('image/jpeg',.95);o.innerHTML=`<img src="${u}"><div class="row"><a class="b" download="madrasa-edit.jpg" href="${u}" style="text-decoration:none">ডাউনলোড</a></div><small>ছবি চেপে ধরেও সেভ করা যায়।</small>`;return}
 if(typeof MediaRecorder=='undefined')return msg('এই ব্রাউজারে ভিডিও সেভ সমর্থিত নয়, Chrome ব্যবহার করুন');
-ensureA();const st=e.captureStream(60);if(A){A.ad.stream.getAudioTracks().forEach(t=>st.addTrack(t));A.mon.gain.value=0;A.ac.resume()}
-const mt=['video/mp4;codecs=avc1','video/mp4','video/webm;codecs=vp9','video/webm'].find(t=>MediaRecorder.isTypeSupported(t)),ex=mt.includes('mp4')?'mp4':'webm',ch=[],mr=new MediaRecorder(st,{mimeType:mt,videoBitsPerSecond:12e6});
+ensureA();const st=e.captureStream(EXS.fps);if(A){A.ad.stream.getAudioTracks().forEach(t=>st.addTrack(t));A.mon.gain.value=0;A.ac.resume()}
+const mt=['video/mp4;codecs=avc1','video/mp4','video/webm;codecs=vp9','video/webm'].find(t=>MediaRecorder.isTypeSupported(t)),ex=mt.includes('mp4')?'mp4':'webm',ch=[],mr=new MediaRecorder(st,{mimeType:mt,videoBitsPerSecond:EXS.br});
 mr.ondataavailable=ev=>ev.data.size&&ch.push(ev.data);
-mr.onstop=()=>{EX=null;if(A)A.mon.gain.value=1;const u=URL.createObjectURL(new Blob(ch,{type:mt.split(';')[0]}));o.innerHTML=`<small>${W}×${H}, 60fps, ${ex.toUpperCase()}</small><video src="${u}" controls playsinline></video><div class="row"><a class="b" download="madrasa-edit.${ex}" href="${u}" style="text-decoration:none">ডাউনলোড</a></div>`};
+mr.onstop=()=>{EX=null;if(A)A.mon.gain.value=1;const u=URL.createObjectURL(new Blob(ch,{type:mt.split(';')[0]}));o.innerHTML=`<small>${W}×${H}, ${EXS.fps}fps, ${ex.toUpperCase()}</small><video src="${u}" controls playsinline></video><div class="row"><a class="b" download="madrasa-edit.${ex}" href="${u}" style="text-decoration:none">ডাউনলোড</a></div>`};
 EX={g:e.getContext('2d'),W,H,mr};T=0;playing=true;mr.start(500);o.innerHTML='<small id="exs">⏺ রেকর্ড হচ্ছে…</small>'};
 const FDB=()=>new Promise((r,j)=>{const q=indexedDB.open('msfont',1);q.onupgradeneeded=()=>q.result.createObjectStore('f');q.onsuccess=()=>r(q.result);q.onerror=j});
 async function useFont(buf){const f=new FontFace('SolaimanLipi',buf);await f.load();document.fonts.add(f)}
@@ -529,21 +722,84 @@ $('ff').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const buf=
 let dp=null;addEventListener('beforeinstallprompt',e=>{e.preventDefault();dp=e;$('ib').hidden=false});
 $('ib').onclick=async()=>{if(dp){dp.prompt();await dp.userChoice;dp=null;$('ib').hidden=true}};addEventListener('appinstalled',()=>{$('ib').hidden=true});
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
+
+// ================= এআই ভিডিও (fal.ai · Kling) =================
+const FAL_Q='https://queue.fal.run/',FAL_MODELS=[
+['fal-ai/kling-video/v2.5-turbo/pro','Kling 2.5 Turbo Pro · দ্রুত ও উন্নত মান (সুপারিশ)'],
+['fal-ai/kling-video/v2.1/master','Kling 2.1 Master · সর্বোচ্চ মান, ধীর'],
+['custom','✏️ নিজের মডেল পাথ (নতুন Kling ভার্সন এলে এখানে বসান)']];
+const VG_TAGS=['cinematic lighting','slow camera push-in','drone shot','handheld realistic','golden hour','4K ultra detailed','shallow depth of field','slow motion','timelapse','soft natural motion'];
+let VGMODE='t2v',VGIMG='',VGBUSY=0;
+const falKey=()=>$('fk_key').value.trim();
+const falH=k=>({'Authorization':'Key '+k,'Content-Type':'application/json'});
+function vgHist(){try{return JSON.parse(ls.g('ms_vh')||'[]')}catch(e){return[]}}
+function vgSave(a){try{ls.s('ms_vh',JSON.stringify(a.slice(0,40)))}catch(e){}}
+function vgBase(){const v=$('vg_m').value;if(v!='custom')return v;return $('vg_c').value.trim().replace(/^https?:\/\/(queue\.)?fal\.(run|ai)\//,'').replace(/\/+$/,'')}
+function vgEndpoint(mode){let b=vgBase();if(!b)return'';b=b.replace(/\/(text-to-video|image-to-video)$/,'');return b+(mode=='i2v'?'/image-to-video':'/text-to-video')}
+async function falErr(r){let m='ত্রুটি '+r.status;try{const j=await r.json(),d=j.detail;if(typeof d=='string')m=d;else if(Array.isArray(d)&&d[0])m=d[0].msg||JSON.stringify(d[0]);else if(j.message)m=j.message}catch(e){}
+if(r.status==401)m='API কী ভুল বা মেয়াদ শেষ';else if(r.status==403)m='ব্যালেন্স শেষ বা অনুমতি নেই — fal.ai-তে ক্রেডিট যোগ করুন ('+m+')';else if(r.status==404)m='মডেল পাথ পাওয়া যায়নি — মডেল তালিকা বা পাথ দেখুন';else if(r.status==429)m='অনেক রিকোয়েস্ট — একটু পরে চেষ্টা করুন';return new Error(m)}
+function vgDown(img){return new Promise((res,rej)=>{const r=new FileReader;r.onload=()=>{const im=new Image;im.onload=()=>{const M=1280,k=Math.min(1,M/Math.max(im.width,im.height)),cv=document.createElement('canvas');cv.width=Math.round(im.width*k);cv.height=Math.round(im.height*k);cv.getContext('2d').drawImage(im,0,0,cv.width,cv.height);res(cv.toDataURL('image/jpeg',.92))};im.onerror=()=>rej(new Error('ছবি পড়া যায়নি'));im.src=r.result};r.onerror=()=>rej(new Error('ছবি পড়া যায়নি'));r.readAsDataURL(img)})}
+function vgModelUI(){const v=$('vg_m').value;$('vg_cw').hidden=v!='custom';$('vg_mi').textContent=v=='custom'?'fal.ai মডেল পাতার পাথ বসান (যেমন fal-ai/kling-video/v2.5-turbo/pro)। শেষে /text-to-video বা /image-to-video নিজে যোগ হবে। সর্বশেষ Kling ভার্সনের পাথ fal.ai/models থেকে দেখুন।':'আপনার ব্যালেন্স থেকে fal.ai প্রতি ভিডিওর খরচ কাটে। ভিডিও শেষ না হলে খরচ কাটে না।'}
+function vgModeUI(){document.querySelectorAll('#vg_mode button').forEach(b=>b.classList.toggle('on',b.dataset.v==VGMODE));$('vg_imw').hidden=VGMODE!='i2v';$('vg_arw').hidden=VGMODE=='i2v'}
+async function vgRun(job){const k=falKey()||ls.g('ms_fal_key');const ep=job.ep;
+const body={prompt:job.prompt,duration:String(job.dur),cfg_scale:job.cfg,negative_prompt:job.neg};if(job.mode=='i2v')body.image_url=job.img;else body.aspect_ratio=job.ar;
+if(!job.rid){const r=await fetch(FAL_Q+ep,{method:'POST',headers:falH(k),body:JSON.stringify(body)});if(!r.ok)throw await falErr(r);const j=await r.json();job.rid=j.request_id;job.su=j.status_url;job.ru=j.response_url;vgPend(job)}
+let miss=0;for(let n=0;n<400;n++){await new Promise(r=>setTimeout(r,n<5?3000:5000));let r;try{r=await fetch(job.su,{headers:falH(k)})}catch(e){if(++miss>20)throw new Error('ইন্টারনেট সংযোগ নেই');continue}miss=0;if(!r.ok)throw await falErr(r);const j=await r.json();job.st=j.status;job.pos=j.queue_position;vgQ();
+if(j.status=='COMPLETED'){const rr=await fetch(job.ru,{headers:falH(k)});if(!rr.ok)throw await falErr(rr);const d=await rr.json(),u=d.video&&d.video.url;if(!u)throw new Error('ভিডিও লিংক পাওয়া যায়নি');return u}}
+throw new Error('অনেক সময় লেগে গেল — হিস্ট্রিতে পরে দেখুন')}
+let VGJOBS=[];
+function vgPend(j){const a=JSON.parse(ls.g('ms_vp')||'[]').filter(x=>x.id!=j.id);a.push({id:j.id,rid:j.rid,su:j.su,ru:j.ru,prompt:j.prompt,mode:j.mode,ep:j.ep,t:j.t});ls.s('ms_vp',JSON.stringify(a))}
+function vgUnpend(id){const a=JSON.parse(ls.g('ms_vp')||'[]').filter(x=>x.id!=id);ls.s('ms_vp',a.length?JSON.stringify(a):'')}
+function vgQ(){const e=$('vg_q');if(!e)return;e.innerHTML=VGJOBS.length?'<div class="lb">চলমান কাজ</div>'+VGJOBS.map(j=>`<small style="display:block;margin:4px 0">${j.err?'❌ '+j.err:j.done?'✅ তৈরি':j.rid?(j.st=='IN_PROGRESS'?'🎞️ তৈরি হচ্ছে…':'⏳ লাইনে'+(j.pos!=null?' ('+(j.pos+1)+')':'')):'📤 পাঠানো হচ্ছে…'} — ${vgEsc(j.prompt.slice(0,60))}</small>`).join(''):''}
+const vgEsc=t=>t.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function vgCard(h){const d=new Date(h.t).toLocaleString('bn-BD');return `<div class="pn" style="margin:8px 0;padding:10px"><video src="${h.url}" controls playsinline preload="metadata" style="width:100%;border-radius:10px;background:#000"></video><small style="display:block;margin:6px 0">${vgEsc(h.prompt.slice(0,140))}<br>${d} · ${h.dur}s · ${h.mode=='i2v'?'ছবি→ভিডিও':'লেখা→ভিডিও'}</small><div class="row"><button class="g" data-vd="${h.id}">⬇️ ডাউনলোড</button><button class="b" data-ve="${h.id}">🎬 এডিটরে নিন</button><button class="g" data-vx="${h.id}">🗑️</button></div></div>`}
+function vgList(){const a=vgHist();$('vh_l').innerHTML=a.length?a.map(h=>vgCard(h)).join(''):'<small>এখনও কোনো ভিডিও নেই</small>'}
+async function vgBlob(u){const r=await fetch(u);if(!r.ok)throw new Error('ভিডিও নামানো যায়নি');return await r.blob()}
+async function vgGo(){if(VGBUSY)return;const k=falKey();if(!k)return msg('আগে fal.ai API কী দিন');ls.s('ms_fal_key',k);
+const lines=$('vg_p').value.split('\n').map(x=>x.trim()).filter(Boolean);if(!lines.length)return msg('প্রম্পট লিখুন');
+if(VGMODE=='i2v'&&!VGIMG)return msg('আগে একটি ছবি বাছুন');const ep=vgEndpoint(VGMODE);if(!ep)return msg('মডেল পাথ দিন');
+const n=+$('vg_k').value,jobs=[];lines.forEach(l=>{for(let i=0;i<n;i++)jobs.push({id:Date.now()+'_'+Math.random().toString(36).slice(2,7),prompt:l,mode:VGMODE,ep,dur:$('vg_d').value,ar:$('vg_ar').value,cfg:+$('vg_cfg').value,neg:$('vg_n').value.trim(),img:VGIMG,t:Date.now()})});
+if(jobs.length>8&&!confirm(jobs.length+'টি ভিডিও তৈরি হবে — fal.ai ব্যালেন্স থেকে সবগুলোর খরচ কাটবে। চালিয়ে যাবেন?'))return;
+VGBUSY=1;$('vg_go').disabled=true;VGJOBS=jobs;vgQ();$('vg_o').innerHTML='';
+// একসাথে সর্বোচ্চ ৩টি চলবে
+let ix=0,ok=0;const worker=async()=>{while(ix<jobs.length){const j=jobs[ix++];try{const u=await vgRun(j);j.done=1;ok++;vgUnpend(j.id);const h=vgHist();h.unshift({id:j.id,url:u,prompt:j.prompt,mode:j.mode,dur:j.dur,t:Date.now()});vgSave(h);$('vg_o').insertAdjacentHTML('afterbegin',vgCard(h[0]))}catch(e){j.err=e.message;vgUnpend(j.id);if(/ব্যালেন্স|কী ভুল/.test(e.message)){ix=jobs.length}}vgQ()}};
+await Promise.all([worker(),worker(),worker()]);VGBUSY=0;$('vg_go').disabled=false;msg(ok?'✅ '+ok+'টি ভিডিও তৈরি হয়েছে':'কোনো ভিডিও তৈরি হয়নি');vgList()}
+async function vgResume(){const a=JSON.parse(ls.g('ms_vp')||'[]');if(!a.length)return;const k=ls.g('ms_fal_key');if(!k)return;for(const j of a){if(VGJOBS.some(x=>x.id==j.id))continue;if(Date.now()-j.t>6*3600e3){vgUnpend(j.id);continue}try{const u=await vgRun({...j,dur:'5'});vgUnpend(j.id);const h=vgHist();h.unshift({id:j.id,url:u,prompt:j.prompt,mode:j.mode,dur:'?',t:Date.now()});vgSave(h);vgList();msg('🎬 একটি অসমাপ্ত ভিডিও তৈরি হয়ে হিস্ট্রিতে এসেছে')}catch(e){vgUnpend(j.id)}}}
+(function(){
+$('fk_key').value=ls.g('ms_fal_key');
+$('vg_m').innerHTML=FAL_MODELS.map(m=>`<option value="${m[0]}">${m[1]}</option>`).join('');$('vg_c').value=ls.g('ms_fal_cm');
+$('vg_m').value=ls.g('ms_fal_m')||FAL_MODELS[0][0];if(!$('vg_m').value)$('vg_m').value=FAL_MODELS[0][0];
+$('vg_m').onchange=()=>{ls.s('ms_fal_m',$('vg_m').value);vgModelUI()};$('vg_c').onchange=()=>ls.s('ms_fal_cm',$('vg_c').value.trim());
+$('fk_sv').onclick=()=>{const k=falKey();if(!k)return msg('কী লিখুন');ls.s('ms_fal_key',k);msg('কী সেভ হয়েছে ✔')};
+$('vg_mode').onclick=e=>{const b=e.target.closest('[data-v]');if(b){VGMODE=b.dataset.v;vgModeUI()}};
+$('vg_pi').onclick=()=>$('vg_fi').click();
+$('vg_fi').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(!f)return;try{VGIMG=await vgDown(f);$('vg_pv').src=VGIMG;$('vg_pv').style.display='block';$('vg_pn').textContent=f.name}catch(er){msg(er.message)}};
+$('vg_ch').innerHTML=VG_TAGS.map(t=>`<button class="fxc" data-tg="${t}">+ ${t}</button>`).join('');
+$('vg_ch').onclick=e=>{const b=e.target.closest('[data-tg]');if(!b)return;const t=$('vg_p'),ls2=t.value.split('\n');let l=ls2.length-1;ls2[l]=(ls2[l]+(ls2[l]&&!/[,\s]$/.test(ls2[l])?', ':'')+b.dataset.tg);t.value=ls2.join('\n')};
+$('vg_cfg').oninput=e=>$('vg_cfgv').textContent=(+e.target.value).toFixed(2).replace(/0$/,'');
+$('vg_go').onclick=vgGo;
+const act=async e=>{const b=e.target.closest('[data-vd],[data-ve],[data-vx]');if(!b)return;const a=vgHist(),id=b.dataset.vd??b.dataset.ve??b.dataset.vx,i=a.findIndex(x=>x.id==id),h=a[i];if(!h)return;
+if(b.dataset.vx!==undefined){a.splice(i,1);vgSave(a);vgList();return}
+try{msg('⏳ ভিডিও নামানো হচ্ছে…');const bl=await vgBlob(h.url);if(b.dataset.vd!==undefined){const l=document.createElement('a');l.href=URL.createObjectURL(bl);l.download='ai-video-'+h.t+'.mp4';l.click();msg('ডাউনলোড শুরু ✔')}else{await addFiles([new File([bl],'AI ভিডিও.mp4',{type:bl.type||'video/mp4'})]);mode('video');msg('ভিডিও এডিটরে যোগ হয়েছে ✔')}}catch(er){msg(er.message||'নামানো যায়নি — লিংকটি খুলে সেভ করুন');if(b.dataset.vd!==undefined)window.open(h.url,'_blank')}};
+$('p_vh').onclick=act;$('vg_o').onclick=act;
+$('vh_clr').onclick=()=>{if(confirm('তালিকা মুছবেন? (fal.ai-তে ভিডিও থাকবে, শুধু এই অ্যাপের তালিকা মুছবে)')){vgSave([]);vgList()}};
+vgModelUI();vgModeUI();vgList();setTimeout(vgResume,1500)})();
+
 // ---------- হোম / সেটিংস / নেভিগেশন ----------
-const MT={video:['clip','fx','txt','out'],photo:['fx','txt','out'],voice:['vo']};let cur='home';
+const MT={video:['clip','set','card','fx','adj','txt','stk','out'],photo:['fx','adj','txt','stk','out'],voice:['vi','clip','vn','vf','vq','vm','out'],ai:['tts','cl'],vid:['vg','vh']};let cur='home';
 function mode(m){cur=m;pause();$('v_home').hidden=m!='home';$('v_set').hidden=m!='set';$('v_ed').hidden=!MT[m];
 document.querySelectorAll('#nav button').forEach(b=>b.classList.toggle('on',b.dataset.m==m));
-if(MT[m]){const ts=MT[m];document.querySelectorAll('#tabs button').forEach(b=>b.hidden=!ts.includes(b.dataset.t));$('tabs').hidden=ts.length<2;$('fxb').hidden=m=='voice';$('tpb').hidden=m=='photo';
-$('fm').accept=m=='photo'?'image/*':m=='voice'?'video/*':'image/*,video/*';$('first').textContent=m=='photo'?'＋ ছবি যোগ করুন':m=='voice'?'＋ ভিডিও যোগ করুন':'＋ ভিডিও / ছবি যোগ করুন';
-const a=document.querySelector('#tabs button.on');tab(a&&ts.includes(a.dataset.t)?a.dataset.t:ts[0])}
+$('nav').hidden=!!MT[m];$('tools').hidden=!MT[m];
+if(MT[m]){const ts=MT[m];document.querySelectorAll('#tools button').forEach(b=>b.hidden=!ts.includes(b.dataset.t));$('tl').hidden=m=='photo';$('tpb').hidden=m=='photo';document.querySelector('#v_ed .stage').hidden=m=='ai'||m=='vid';$('tools').scrollLeft=0;
+$('fm').accept=m=='photo'?'image/*':m=='voice'||m=='ai'||m=='vid'?'audio/*,video/*':'image/*,video/*';$('first').textContent=m=='photo'?'＋ ছবি যোগ করুন':m=='voice'?'＋ অডিও / ভিডিও যোগ করুন':'＋ ভিডিও / ছবি যোগ করুন';
+tab(LT[m]===undefined?ts[0]:LT[m])}
 if(m=='home')renderHome();if(m=='set')fillSet();scrollTo(0,0)}
 document.addEventListener('click',e=>{const b=e.target.closest('[data-m]');if(b)mode(b.dataset.m)});
-$('hb').onclick=()=>mode('home');$('sb').onclick=()=>mode('set');$('hp_edit').onclick=()=>mode('set');
+$('hb').onclick=()=>mode('home');$('sb').onclick=()=>mode('set');
 let INFO={name:'',addr:'',phone:'',photo:''};try{INFO={...INFO,...JSON.parse(localStorage.getItem('ms_info')||'{}')}}catch(e){}
 function saveInfo(){try{localStorage.setItem('ms_info',JSON.stringify(INFO));return true}catch(e){msg('সেভ করা যায়নি');return false}}
 function setImg(el,u){el.style.backgroundImage=u?`url(${u})`:'';el.classList.toggle('has',!!u);el.style.aspectRatio='';if(u){const i=new Image();i.onload=()=>{if(i.width&&i.height)el.style.aspectRatio=Math.min(2.4,Math.max(.8,i.width/i.height))};i.src=u}}
-function renderHome(){setImg($('hp_img'),INFO.photo);$('hp_name').textContent=INFO.name||'—';$('hp_addr').textContent=INFO.addr||'—';
-const p=$('hp_ph');p.textContent='';if(INFO.phone){const a=document.createElement('a');a.href='tel:'+INFO.phone.replace(/[^\d+]/g,'');a.textContent=INFO.phone;p.append(a)}else p.textContent='—'}
+function renderHome(){setImg($('hp_img'),INFO.photo)}
 let tmpPhoto='';function fillSet(){tmpPhoto=INFO.photo;setImg($('s_pv'),tmpPhoto);$('s_name').value=INFO.name;$('s_addr').value=INFO.addr;$('s_ph').value=INFO.phone}
 function photoIn(f){if(!f)return;const i=new Image();i.onload=()=>{const k=Math.min(1,1000/Math.max(i.width,i.height)),cv=document.createElement('canvas');cv.width=Math.round(i.width*k);cv.height=Math.round(i.height*k);cv.getContext('2d').drawImage(i,0,0,cv.width,cv.height);tmpPhoto=cv.toDataURL('image/jpeg',.82);setImg($('s_pv'),tmpPhoto);msg('ছবি বসেছে — "সেভ করুন" চাপুন')};i.src=URL.createObjectURL(f)}
 $('s_cam').onclick=()=>$('p_cam').click();$('s_gal').onclick=()=>$('p_gal').click();
@@ -569,7 +825,9 @@ addEventListener('popstate',e=>{
   exitArm=1;setTimeout(()=>exitArm=0,2500);msg('বের হতে আবার ব্যাক চাপুন');history.pushState({ms:'home'},'');_mode('home');return}
  _mode(st.ms=='adm'?cur:(st.ms||'home'));
 });
-try{history.replaceState({ms:'root'},'');history.pushState({ms:'home'},'');navOn=1}catch(e){}
+try{history.replaceState({ms:'root'},'');navOn=1;
+// Chrome ইউজার-ট্যাপ ছাড়া বসানো এন্ট্রি বাদ দেয়, তাই গার্ড এন্ট্রি প্রথম ট্যাপে বসে
+document.addEventListener('click',function g(){document.removeEventListener('click',g,true);if(history.state&&history.state.ms=='root')history.pushState({ms:cur=='set'||MT[cur]?cur:'home'},'')},true)}catch(e){}
 // ---------- অ্যাকাউন্ট গেট + অ্যাডমিন প্যানেল (Firebase) ----------
 const CFG=window.MS_CONFIG||{},FBC=CFG.firebase||{},BN='০১২৩৪৫৬৭৮৯';
 const nd=v=>String(v||'').replace(/[০-৯]/g,q=>BN.indexOf(q)).replace(/\D/g,''),mail=i=>i+'@ms-studio.app',ADM=nd(CFG.adminId);

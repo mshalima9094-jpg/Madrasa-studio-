@@ -1,4 +1,4 @@
-const C='ms-v5',F=['./','./index.html','./manifest.json','./icon-192.png','./icon-512.png','./config.js'],
+const C='ms-v8',F=['./','./index.html','./manifest.json','./icon-192.png','./icon-512.png','./config.js'],
 X=['https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js','https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js','https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js','https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(async c=>{for(const u of F){try{await c.add(u)}catch(_){}}for(const u of X){try{await c.add(new Request(u,{mode:'cors'}))}catch(_){}}try{await c.add('./SolaimanLipi.ttf')}catch(_){}}));self.skipWaiting()});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(n=>n!=C).map(n=>caches.delete(n)))).then(()=>clients.claim()))});

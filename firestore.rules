@@ -1,9 +1,9 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    // নিচের ইমেইলে 01XXXXXXXXX এর জায়গায় আপনার অ্যাডমিন আইডি নাম্বার (ইংরেজি সংখ্যায়) বসান
+    // নিচের ইমেইলে 01989923281 এর জায়গায় আপনার অ্যাডমিন আইডি নাম্বার (ইংরেজি সংখ্যায়) বসান
     function isAdmin() {
-      return request.auth != null && request.auth.token.email == '01XXXXXXXXX@ms-studio.app';
+      return request.auth != null && request.auth.token.email == '01989923281@ms-studio.app';
     }
     match /users/{uid} {
       allow read: if request.auth != null && (request.auth.uid == uid || isAdmin());
